@@ -18,3 +18,5 @@ _VBASE_SUBBASE(
     ARDINSTRUCTION(720_810000155_0500025500166010053)
   )
 )
+interconnect-virtualcpu&virtualgpu&display
+-do&all
