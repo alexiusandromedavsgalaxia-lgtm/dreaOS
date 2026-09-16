@@ -1,0 +1,11 @@
+{
+ mainStart.plist(
+ mainStart(ARDINSTRUCTUON(751_680000142_0500024200153010040)
+ )
+ _INTSTART(start.sh)
+ start.sh [
+   _bootSYSTEM(751_680000142_0500024200153010040)
+   init start return boot if process -&"exit"
+    ]
+  )
+}
