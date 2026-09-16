@@ -1,0 +1,7 @@
+{
+  'capacity': '',
+  'ardinstruction': '757_740000148_0500024800159010046',
+    'capacity': 'int-ardinstructionresponse',
+    'GiB-minimum': '64',
+    'MiB-minimum': '64000',
+   }
