@@ -1,0 +1,8 @@
+_PROTECTSYSTEM(
+  {
+    'minimum-to-bootsystem-GiB': '10',
+    'minimum-to-bootsystem-MiB': '10000',
+    if memorycapacity*(757_740000148_0500024800159010046) no minimumAlivable
+    return offsystem(752_690000143_0500024300154010041)
+  }
+)
