@@ -1,0 +1,13 @@
+_MAGIC3HEADER-VISUALINTERFACE(
+  _BACKGROUND(IMAGEFETCHURL="https://pin.it/5m0FHZXL8");
+  _LOGOVISUAL(POSITION-&TOPSCREEN);
+_MAGIC64-U30-40F30-024092-92_92-93020
+  _MAGIC64-CODE{
+  int create button{
+  design(color:DYNAMICCOLOR; variantDynamicInterface)
+_content(text:"Continue");
+if user -&action"touch-button"
+  return redirect300
+  redirect *./Wi-Ficonfig.cnu
+  }
+})
