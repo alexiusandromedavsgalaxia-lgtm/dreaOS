@@ -17,7 +17,7 @@ REQUIREMENTS(
 )
 _CONDITIONAL [
 if DeviceInfo -& GETTED --register-camp-&
-camp(*DATA/campArchive/carpet*/camps/campestructure.cnu)
+camp(*DATA/campArchive/carpet*/camps/campestructure.json.cnu)
 camp(*DATA_SAVE/campArchive/carpet*/camps/campregistry.cnu)
 else reject register
 turnoff()
