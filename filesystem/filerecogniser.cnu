@@ -53,3 +53,4 @@ define_Extension(
   .syslog(System Log, Logo(GetLogo))
   .sysdiagnostic(System Diagnostic, Logo(GetLogo))
   .sys.tpd.td(System Image, Logo(GetLogo))
+export default archive {Extensions}
