@@ -1,0 +1,8 @@
+{
+  "HED1": "NAME";
+  "HED2": "INFO";
+  "HED3": "PROCESSOR";
+  "HED4": "GPU";
+  "HED5": "WI-FI";
+  "HED6": "IN-DEVICE-WRITE"
+}
