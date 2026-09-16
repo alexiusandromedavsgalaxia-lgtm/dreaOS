@@ -1,0 +1,20 @@
+DRAP-ODDO2022002021932829292929
+11101030020101100873874378427832784378292920202020202784387427824237992948483000
+return 200 if process -&state"good"
+else return 400
+return 404 if process -&state"lost"
+else return 200
+return _restart(rebootsystem) if process -&state"broke, corrupted, badscripted"
+else logic restart {
+instruction.init(else)
+if system-&action"reboot"-action(
+do call function ard50="737_540000128_0500022800139010026"
+wait function response
+if response -&"turning off"-executecommand(
+second(
+do call function ard50="738_550000129_0500022900140010027"
+wait function response
+if response -&"turning on"-end function
+  )
+)
+else repeat process return error 506
