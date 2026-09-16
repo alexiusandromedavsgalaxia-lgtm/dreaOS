@@ -1,0 +1,6 @@
+if NewDevice =! register(ed) [
+  openCamp(*CAMP/carpet*./campstructure.json.cnu)
+  limitCamps="500"
+  .EXECUTE()
+  else return
+]
