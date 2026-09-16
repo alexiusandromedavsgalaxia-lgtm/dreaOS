@@ -1,6 +1,7 @@
 if FILE -& enter system [
 detect.file(file getpath/file)
 ARDINSTRUCTION(717_340000107_0500020700118010005) 
+ARDINSTRUCTION(728_440000118_0500021800129010016)
 define_Extension(
 .psd(PSD Archive, Logo(GetLogo))
   .ipa(iOS App, Logo(GetLogo))
