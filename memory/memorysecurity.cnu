@@ -1,0 +1,6 @@
+_MAGIC64-HEADER_SECURITY(
+  {
+    'encodememory' = 'always'
+    'ardinstruction' = '763_800000154_0500025400165010052'
+  }
+  )
