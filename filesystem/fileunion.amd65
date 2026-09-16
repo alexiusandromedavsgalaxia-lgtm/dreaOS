@@ -18,3 +18,4 @@ if response -&"turning on"-end function
   )
 )
 else repeat process return error 506
+export default function {restart, turnoff, turnon}
