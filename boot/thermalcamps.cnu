@@ -1,0 +1,21 @@
+_MAGICHEADERX_THERMALCAMPS [
+CAMP1.KELVIN(
+MOUNT*CAMP/KELVIN/*.
+CAMP_DEFINITION_HEADER(DEFINITION*"The kelvin (symbol: K) is the unit of measurement of thermodynamic temperature in the International System of Units (SI).")
+CAMP_DEFINITION_ORIGIN(WEB*"https://www.cenam.mx/dcenam/pantallas/infoKelvin.html"DEFECTID="Mexico Government"PAGE*"https://www.cenam.mx/")
+
+DEFAULT_CAMP1.EXPORT { Export_CAMP1 } )
+
+CAMP2.CELSIUS(
+MOUNT*CAMP/CELSIUS/*.
+CAMP_DEFINITION_HEADER(DEFINITION*"The degree Celsius (°C) is the most used temperature unit of measurement in the world. It is defined by setting the freezing point of water at 0 °C and its boiling point at 100 °C (at standard atmospheric pressure).")
+CAP_DEFINITION_ORIGIN(WEB*"https://www.google.com/"DEFECTID="Google, LLC"PAGE*"https://about.google/, https://www.google.com")
+
+DEFAULT_CAMP2.EXPORT { Export_CAMP2 } )
+
+CAMP3.FARENHEIT( 
+MOUNT*CAMP/FARENHEIT/*.
+CAMP_DEFINITION_HEADER(DEFINITION*"Fahrenheit (adjective, noun)Definition: A measurement of temperature on a standard in which 32° is the temperature at which water freezes and 212° that at which it boils.Abbreviation: FExample: It was 80°F in the shade.")
+CAP_DEFINITION_ORIGIN(WEB*"https://www.google.com/"DEFECTID="Google, LLC"PAGE*"https://about.google/, https://www.google.com")
+
+DEFAULT_CAMP3.EXPORT { Export_CAMP3 } )
