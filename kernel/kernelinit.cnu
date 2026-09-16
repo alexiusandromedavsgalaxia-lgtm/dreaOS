@@ -1,0 +1,8 @@
+_MAINSTART * plus*(equal, minimum)
+  _INSTRUCTION_init.(**MAIN, -equal);
+_PLIST-plist.plist/directory*/GET/("/pls/plist/plistmainstart.plist")
+  _KKDD-TMNNPLISTARD50-target.ard50(*ARD50)
+  _IZTD*installDependencie_ARD50**FROM_./ard50.dpd.cnu
+  _IZTD_INSTRUCTIONMAINPC_BOOTSTART
+  init#Boot/boot.boot;
+INIT
