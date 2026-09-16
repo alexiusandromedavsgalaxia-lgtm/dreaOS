@@ -16,5 +16,7 @@ _MAINVISUAL-OBJECT{
   stop if systemArchives -&state"installed"
   return stop
   else continue
+if installation -&Status"Complete" 
+return redirect300 redirect*./mainconfig/welcome.cnu
   }
   )
