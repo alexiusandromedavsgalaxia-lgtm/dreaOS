@@ -19,3 +19,5 @@ protectWriteandReadData(
 memoryShutDown(
    ARDINSTRUCTION(777_940000168_0500026800179010066)
   )
+
+export default { MShutDown, MStart, MRead, MWrite, MCapacity }
