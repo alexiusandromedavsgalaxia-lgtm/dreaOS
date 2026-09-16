@@ -1,0 +1,67 @@
+_MAGICX-MATX_FILESPACE(
+  FILESPACE return FILE
+  calls {
+  ename("Call1")=ARDINSTRUCTION(726_420000116_0500021600127010014)
+  ename("Call2")=ARDINSTRUCTION(727_430000117_0500021700128010015)
+  ename("Call3")=ARDINSTRUCTION(729_450000119_0500021900130010017)
+  ename("Call4")=ARDINSTRUCTION(736_530000127_0500022700138010025)
+  ename("Call5")=ARDINSTRUCTION(717_340000107_0500020700118010005)
+  ename("Call6")=ARDINSTRUCTION(718_350000108_0500020800119010006)
+  ename("Call7")=ARDINSTRUCTION(719_360000109_0500020900120010007)
+  ename("Call8")=ARDIMSTRUCTION(720_370000110_0500021000121010008)
+  ename("Call9")=ARDIMSTRUCTION(721_370000111_050002110012201000)
+  }
+  use Call1 to(
+identifyArchive(
+import Extensions FROM ./filerecogniser.cnu
+ )
+type(
+TypeInScreen.useCall8
+ )
+)
+
+use Call2 to(
+openArchive(
+import Archive FROM ./filerecogniser.cnu
+ )
+openInScreen(
+useCall8
+ )
+)
+
+use Call3 to(
+openImage(
+import Image FROM ./filerecogniser.cnu
+ )
+openImage(
+useCall8
+ )
+)
+
+use Call4 to(
+editArchive(
+import ArchiveContent, ArchiveMetadata, ArchiveInfo, ArchiveInt FROM ./filerecogniser.cnu
+ )
+openEditor(
+useCall8
+ )
+
+use Call5 to(
+_readData
+)
+
+use Call6 to(
+_writeData
+ )
+
+useCall7 to(
+_imput-&register-Data
+ )
+
+use Call8 to(
+_showInScreen
+)
+
+use Call9 to(
+_getData
+ )
