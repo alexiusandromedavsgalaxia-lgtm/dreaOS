@@ -2233,4 +2233,6 @@ _MGH-HEADER4-XCIA(
   if writenCode ==¡ match VerC 
   return 405
   else return 200
-
+)
+)
+export default { prefix, format }
