@@ -1,0 +1,2236 @@
+_MAIN-ARCHIVE(./accountscreen.cnu)
+_MGH-HEADER4-XCIA(
+  if new account -&"Created"ConstCamps(
+  {
+    'Name': 'Yes',
+  'e-mail': 'Yes',
+  'teleph': 'Yes',
+  'password': 'Yes',
+  }
+  _EMAIL-VERIFICATION(
+  _SENDCODE-6DIGITCODE(FROMDIRECTION(~netwix.platforms@yahoo.com~)
+  save code-&entitie"sendedCode"
+  _COMPROBE(
+  if writedCode ==¡ match sendedCode
+  return 400, 405
+  else return 200 
+  )
+  )
+  _TELEPHONE-VERIFICATION(
+  CODES(
+  {
+  "prefijos_telefonicos_mundiales": {
+    "zona_1_norteamerica": {
+      "descripcion": "Estados Unidos, Canadá y partes del Caribe",
+      "prefijos": [
+        { "pais": "Estados Unidos", "codigo": "+1" },
+        { "pais": "Canadá", "codigo": "+1" },
+        { "pais": "Bahamas", "codigo": "+1-242" },
+        { "pais": "Barbados", "codigo": "+1-246" },
+        { "pais": "Anguila", "codigo": "+1-264" },
+        { "pais": "Antigua y Barbuda", "codigo": "+1-268" },
+        { "pais": "Islas Vírgenes Británicas", "codigo": "+1-284" },
+        { "pais": "Islas Caimán", "codigo": "+1-345" },
+        { "pais": "Bermudas", "codigo": "+1-441" },
+        { "pais": "Granada", "codigo": "+1-473" },
+        { "pais": "Turcas y Caicos", "codigo": "+1-649" },
+        { "pais": "Montserrat", "codigo": "+1-664" },
+        { "pais": "Santa Lucía", "codigo": "+1-758" },
+        { "pais": "Dominica", "codigo": "+1-767" },
+        { "pais": "San Vicente y las Granadinas", "codigo": "+1-784" },
+        { "pais": "Puerto Rico", "codigo": "+1-787" },
+        { "pais": "República Dominicana", "codigo": "+1-809" },
+        { "pais": "Trinidad y Tobago", "codigo": "+1-868" },
+        { "pais": "San Cristóbal y Nieves", "codigo": "+1-869" },
+        { "pais": "Jamaica", "codigo": "+1-876" }
+      ]
+    },
+    "zona_2_africa": {
+      "descripcion": "África y algunas islas de los océanos Atlántico e Índico",
+      "prefijos": [
+        { "pais": "Egipto", "codigo": "+20" },
+        { "pais": "Marruecos", "codigo": "+212" },
+        { "pais": "Argelia", "codigo": "+213" },
+        { "pais": "Túnez", "codigo": "+216" },
+        { "pais": "Libia", "codigo": "+218" },
+        { "pais": "Gambia", "codigo": "+220" },
+        { "pais": "Senegal", "codigo": "+221" },
+        { "pais": "Mauritania", "codigo": "+222" },
+        { "pais": "Malí", "codigo": "+223" },
+        { "pais": "Guinea", "codigo": "+224" },
+        { "pais": "Costa de Marfil", "codigo": "+225" },
+        { "pais": "Burkina Faso", "codigo": "+226" },
+        { "pais": "Níger", "codigo": "+227" },
+        { "pais": "Togo", "codigo": "+228" },
+        { "pais": "Benín", "codigo": "+229" },
+        { "pais": "Mauricio", "codigo": "+230" },
+        { "pais": "Liberia", "codigo": "+231" },
+        { "pais": "Sierra Leona", "codigo": "+232" },
+        { "pais": "Ghana", "codigo": "+233" },
+        { "pais": "Nigeria", "codigo": "+234" },
+        { "pais": "Chad", "codigo": "+235" },
+        { "pais": "República Centroafricana", "codigo": "+236" },
+        { "pais": "Camerún", "codigo": "+237" },
+        { "pais": "Cabo Verde", "codigo": "+238" },
+        { "pais": "Santo Tomé y Príncipe", "codigo": "+239" },
+        { "pais": "Guinea Ecuatorial", "codigo": "+240" },
+        { "pais": "Gabón", "codigo": "+241" },
+        { "pais": "República del Congo", "codigo": "+242" },
+        { "pais": "República Democrática del Congo", "codigo": "+243" },
+        { "pais": "Angola", "codigo": "+244" },
+        { "pais": "Guinea-Bisáu", "codigo": "+245" },
+        { "pais": "Diego García", "codigo": "+246" },
+        { "pais": "Isla de la Ascensión", "codigo": "+247" },
+        { "pais": "Seychelles", "codigo": "+248" },
+        { "pais": "Sudán", "codigo": "+249" },
+        { "pais": "Ruanda", "codigo": "+250" },
+        { "pais": "Etiopía", "codigo": "+251" },
+        { "pais": "Somalia", "codigo": "+252" },
+        { "pais": "Yibuti", "codigo": "+253" },
+        { "pais": "Kenia", "codigo": "+254" },
+        { "pais": "Tanzania", "codigo": "+255" },
+        { "pais": "Uganda", "codigo": "+256" },
+        { "pais": "Burundi", "codigo": "+257" },
+        { "pais": "Mozambique", "codigo": "+258" },
+        { "pais": "Zambia", "codigo": "+260" },
+        { "pais": "Madagascar", "codigo": "+261" },
+        { "pais": "Reunión / Mayotte", "codigo": "+262" },
+        { "pais": "Zimbabue", "codigo": "+263" },
+        { "pais": "Namibia", "codigo": "+264" },
+        { "pais": "Malaui", "codigo": "+265" },
+        { "pais": "Lesoto", "codigo": "+266" },
+        { "pais": "Botsuana", "codigo": "+267" },
+        { "pais": "Suazilandia (Eswatini)", "codigo": "+268" },
+        { "pais": "Comoras", "codigo": "+269" },
+        { "pais": "Sudáfrica", "codigo": "+27" },
+        { "pais": "Santa Elena", "codigo": "+290" },
+        { "pais": "Eritrea", "codigo": "+291" },
+        { "pais": "Sudán del Sur", "codigo": "+211" }
+      ]
+    },
+    "zona_3_4_europa": {
+      "descripcion": "Países europeos",
+      "prefijos": [
+        { "pais": "Grecia", "codigo": "+30" },
+        { "pais": "Países Bajos", "codigo": "+31" },
+        { "pais": "Bélgica", "codigo": "+32" },
+        { "pais": "Francia", "codigo": "+33" },
+        { "pais": "España", "codigo": "+34" },
+        { "pais": "Gibraltar", "codigo": "+350" },
+        { "pais": "Portugal", "codigo": "+351" },
+        { "pais": "Luxemburgo", "codigo": "+352" },
+        { "pais": "Irlanda", "codigo": "+353" },
+        { "pais": "Islandia", "codigo": "+354" },
+        { "pais": "Albania", "codigo": "+355" },
+        { "pais": "Malta", "codigo": "+356" },
+        { "pais": "Chipre", "codigo": "+357" },
+        { "pais": "Finlandia", "codigo": "+358" },
+        { "pais": "Bulgaria", "codigo": "+359" },
+        { "pais": "Lituania", "codigo": "+370" },
+        { "pais": "Letonia", "codigo": "+371" },
+        { "pais": "Estonia", "codigo": "+372" },
+        { "pais": "Moldavia", "codigo": "+373" },
+        { "pais": "Armenia", "codigo": "+374" },
+        { "pais": "Bielorrusia", "codigo": "+375" },
+        { "pais": "Andorra", "codigo": "+376" },
+        { "pais": "Mónaco", "codigo": "+377" },
+        { "pais": "San Marino", "codigo": "+378" },
+        { "pais": "Ciudad del Vaticano", "codigo": "+379" },
+        { "pais": "Ucrania", "codigo": "+380" },
+        { "pais": "Serbia", "codigo": "+381" },
+        { "pais": "Montenegro", "codigo": "+382" },
+        { "pais": "Croacia", "codigo": "+385" },
+        { "pais": "Eslovenia", "codigo": "+386" },
+        { "pais": "Bosnia y Herzegovina", "codigo": "+387" },
+        { "pais": "Macedonia del Norte", "codigo": "+389" },
+        { "pais": "Italia", "codigo": "+39" },
+        { "pais": "Rumanía", "codigo": "+40" },
+        { "pais": "Suiza", "codigo": "+41" },
+        { "pais": "Austria", "codigo": "+43" },
+        { "pais": "Reino Unido", "codigo": "+44" },
+        { "pais": "Dinamarca", "codigo": "+45" },
+        { "pais": "Suecia", "codigo": "+46" },
+        { "pais": "Noruega", "codigo": "+47" },
+        { "pais": "Polonia", "codigo": "+48" },
+        { "pais": "Alemania", "codigo": "+49" }
+      ]
+    },
+    "zona_5_latinoamerica": {
+      "descripcion": "América Central, América del Sur y México",
+      "prefijos": [
+        { "pais": "Islas Malvinas", "codigo": "+500" },
+        { "pais": "Belice", "codigo": "+501" },
+        { "pais": "Guatemala", "codigo": "+502" },
+        { "pais": "El Salvador", "codigo": "+503" },
+        { "pais": "Honduras", "codigo": "+504" },
+        { "pais": "Nicaragua", "codigo": "+505" },
+        { "pais": "Costa Rica", "codigo": "+506" },
+        { "pais": "Panamá", "codigo": "+507" },
+        { "pais": "San Pedro y Miquelón", "codigo": "+508" },
+        { "pais": "Haití", "codigo": "+509" },
+        { "pais": "Perú", "codigo": "+51" },
+        { "pais": "México", "codigo": "+52" },
+        { "pais": "Cuba", "codigo": "+53" },
+        { "pais": "Argentina", "codigo": "+54" },
+        { "pais": "Brasil", "codigo": "+55" },
+        { "pais": "Chile", "codigo": "+56" },
+        { "pais": "Colombia", "codigo": "+57" },
+        { "pais": "Venezuela", "codigo": "+58" },
+        { "pais": "Guadalupe", "codigo": "+590" },
+        { "pais": "Bolivia", "codigo": "+591" },
+        { "pais": "Guyana", "codigo": "+592" },
+        { "pais": "Ecuador", "codigo": "+593" },
+        { "pais": "Guayana Francesa", "codigo": "+594" },
+        { "pais": "Paraguay", "codigo": "+595" },
+        { "pais": "Surinam", "codigo": "+597" },
+        { "pais": "Uruguay", "codigo": "+598" },
+        { "pais": "Antillas Neerlandesas (Bonaire/Curazao)", "codigo": "+599" }
+      ]
+    },
+    "zona_6_oceania_y_sudeste_asiatico": {
+      "descripcion": "Oceanía y Sudeste Asiático",
+      "prefijos": [
+        { "pais": "Malasia", "codigo": "+60" },
+        { "pais": "Australia", "codigo": "+61" },
+        { "pais": "Indonesia", "codigo": "+62" },
+        { "pais": "Filipinas", "codigo": "+63" },
+        { "pais": "Nueva Zelanda", "codigo": "+64" },
+        { "pais": "Singapur", "codigo": "+65" },
+        { "pais": "Tailandia", "codigo": "+66" },
+        { "pais": "Islas Marianas del Norte", "codigo": "+670" },
+        { "pais": "Guam", "codigo": "+671" },
+        { "pais": "Brunéi", "codigo": "+673" },
+        { "pais": "Nauru", "codigo": "+674" },
+        { "pais": "Papúa Nueva Guinea", "codigo": "+675" },
+        { "pais": "Tonga", "codigo": "+676" },
+        { "pais": "Islas Salomón", "codigo": "+677" },
+        { "pais": "Vanuatu", "codigo": "+678" },
+        { "pais": "Fiyi", "codigo": "+679" },
+        { "pais": "Palaos", "codigo": "+680" },
+        { "pais": "Wallis y Futuna", "codigo": "+681" },
+        { "pais": "Islas Cook", "codigo": "+682" },
+        { "pais": "Niue", "codigo": "+683" },
+        { "pais": "Samoa Americana", "codigo": "+684" },
+        { "pais": "Samoa", "codigo": "+685" },
+        { "pais": "Kiribati", "codigo": "+686" },
+        { "pais": "Nueva Caledonia", "codigo": "+687" },
+        { "pais": "Tuvalu", "codigo": "+688" },
+        { "pais": "Polinesia Francesa", "codigo": "+689" },
+        { "pais": "Tokelau", "codigo": "+690" },
+        { "pais": "Estados Federados de Micronesia", "codigo": "+691" },
+        { "pais": "Islas Marshall", "codigo": "+692" }
+      ]
+    },
+    "zona_7_rusia_y_asia_central": {
+      "descripcion": "Rusia y Kazajistán",
+      "prefijos": [
+        { "pais": "Rusia", "codigo": "+7" },
+        { "pais": "Kazajistán", "codigo": "+7" }
+      ]
+    },
+    "zona_8_asia_oriental_y_servicios_restantes": {
+      "descripcion": "Resto de países de Asia Oriental y servicios marítimos/satelitales globales",
+      "prefijos": [
+        { "pais": "Inmarsat (Servicio Satelital)", "codigo": "+870" },
+        { "pais": "Servicio Universal de Telecomunicaciones Públicas Internacionales (UIPT)", "codigo": "+878" },
+        { "pais": "Espacio Telefónico Compartido (Códigos para redes globales)", "codigo": "+882" },
+        { "pais": "Espacio Telefónico Compartido (Redes Internacionales adicionales)", "codigo": "+883" },
+        { "pais": "Sistema Satelital Global (Dispositivos móviles por satélite)", "codigo": "+888" }
+      ]
+    },
+    "zona_9_oriente_medio_y_sur_de_asia_restantes": {
+      "descripcion": "Últimos territorios de Oriente Medio y sistemas globales asignados a la zona 9",
+      "prefijos": [
+        { "pais": "Abjasia", "codigo": "+995-44" },
+        { "pais": "Osetia del Sur", "codigo": "+995-34" },
+        { "pais": "Nagorno Karabaj", "codigo": "+994-50" },
+        { "pais": "Chipre del Norte", "codigo": "+90-392" },
+        { "pais": "Servicio de Telecomunicaciones de Emergencia de la ONU", "codigo": "+999" }
+      ]
+    }
+  )
+  FORMATS(
+  {
+  "formatos_telefono_mundiales": [
+    {
+      "pais": "Afganistán",
+      "iso_2": "AF",
+      "prefijo": "+93",
+      "longitud_local": 9,
+      "formatos": {
+        "nacional": "XX XXX XXXX",
+        "internacional": "+93 XX XXX XXXX"
+      }
+    },
+    {
+      "pais": "Albania",
+      "iso_2": "AL",
+      "prefijo": "+355",
+      "longitud_local": 9,
+      "formatos": {
+        "nacional": "0X XXX XXXX",
+        "internacional": "+355 X XXX XXXX"
+      }
+    },
+    {
+      "pais": "Alemania",
+      "iso_2": "DE",
+      "prefijo": "+49",
+      "longitud_local": 11,
+      "formatos": {
+        "nacional": "0XXX XXXXXXX",
+        "internacional": "+49 XXX XXXXXXX"
+      }
+    },
+    {
+      "pais": "Andorra",
+      "iso_2": "AD",
+      "prefijo": "+376",
+      "longitud_local": 6,
+      "formatos": {
+        "nacional": "XXX XXX",
+        "internacional": "+376 XXX XXX"
+      }
+    },
+    {
+      "pais": "Angola",
+      "iso_2": "AO",
+      "prefijo": "+244",
+      "longitud_local": 9,
+      "formatos": {
+        "nacional": "XXX XXX XXX",
+        "internacional": "+244 XXX XXX XXX"
+      }
+    },
+    {
+      "pais": "Antigua y Barbuda",
+      "iso_2": "AG",
+      "prefijo": "+1",
+      "longitud_local": 10,
+      "formatos": {
+        "nacional": "(268) XXX-XXXX",
+        "internacional": "+1 268 XXX XXXX"
+      }
+    },
+    {
+      "pais": "Arabia Saudita",
+      "iso_2": "SA",
+      "prefijo": "+966",
+      "longitud_local": 9,
+      "formatos": {
+        "nacional": "05X XXX XXXX",
+        "internacional": "+966 5X XXX XXXX"
+      }
+    },
+    {
+      "pais": "Argelia",
+      "iso_2": "DZ",
+      "prefijo": "+213",
+      "longitud_local": 9,
+      "formatos": {
+        "nacional": "0X XX XX XX XX",
+        "internacional": "+213 X XX XX XX XX"
+      }
+    },
+    {
+      "pais": "Argentina",
+      "iso_2": "AR",
+      "prefijo": "+54",
+      "longitud_local": 10,
+      "formatos": {
+        "nacional": "0XX XXXX-XXXX",
+        "internacional": "+54 9 XX XXXX-XXXX"
+      }
+    },
+    {
+      "pais": "Armenia",
+      "iso_2": "AM",
+      "prefijo": "+374",
+      "longitud_local": 8,
+      "formatos": {
+        "nacional": "0XX XXXXXX",
+        "internacional": "+374 XX XXXXXX"
+      }
+    },
+    {
+      "pais": "Australia",
+      "iso_2": "AU",
+      "prefijo": "+61",
+      "longitud_local": 9,
+      "formatos": {
+        "nacional": "0X XXXX XXXX",
+        "internacional": "+61 X XXXX XXXX"
+      }
+    },
+    {
+      "pais": "Austria",
+      "iso_2": "AT",
+      "prefijo": "+43",
+      "longitud_local": 11,
+      "formatos": {
+        "nacional": "0XXX XXXXXXX",
+        "internacional": "+43 XXX XXXXXXX"
+      }
+    },
+    {
+      "pais": "Azerbaiyán",
+      "iso_2": "AZ",
+      "prefijo": "+994",
+      "longitud_local": 9,
+      "formatos": {
+        "nacional": "0XX XXX XX XX",
+        "internacional": "+994 XX XXX XX XX"
+      }
+    },
+    {
+      "pais": "Bahamas",
+      "iso_2": "BS",
+      "prefijo": "+1",
+      "longitud_local": 10,
+      "formatos": {
+        "nacional": "(242) XXX-XXXX",
+        "internacional": "+1 242 XXX XXXX"
+      }
+    },
+    {
+      "pais": "Bangladés",
+      "iso_2": "BD",
+      "prefijo": "+880",
+      "longitud_local": 10,
+      "formatos": {
+        "nacional": "01XXX-XXXXXX",
+        "internacional": "+880 1XXX-XXXXXX"
+      }
+    },
+    {
+      "pais": "Barbados",
+      "iso_2": "BB",
+      "prefijo": "+1",
+      "longitud_local": 10,
+      "formatos": {
+        "nacional": "(246) XXX-XXXX",
+        "internacional": "+1 246 XXX XXXX"
+      }
+    },
+    {
+      "pais": "Bahréin",
+      "iso_2": "BH",
+      "prefijo": "+973",
+      "longitud_local": 8,
+      "formatos": {
+        "nacional": "XXXX XXXX",
+        "internacional": "+973 XXXX XXXX"
+      }
+    },
+    {
+      "pais": "Bélgica",
+      "iso_2": "BE",
+      "prefijo": "+32",
+      "longitud_local": 9,
+      "formatos": {
+        "nacional": "0XXX XX XX XX",
+        "internacional": "+32 XXX XX XX XX"
+      }
+    },
+    {
+      "pais": "Belice",
+      "iso_2": "BZ",
+      "prefijo": "+501",
+      "longitud_local": 7,
+      "formatos": {
+        "nacional": "XXX-XXXX",
+        "internacional": "+501 XXX-XXXX"
+      }
+    },
+    {
+      "pais": "Benín",
+      "iso_2": "BJ",
+      "prefijo": "+229",
+      "longitud_local": 8,
+      "formatos": {
+        "nacional": "XX XX XX XX",
+        "internacional": "+229 XX XX XX XX"
+      }
+    },
+    {
+      "pais": "Bielorrusia",
+      "iso_2": "BY",
+      "prefijo": "+375",
+      "longitud_local": 9,
+      "formatos": {
+        "nacional": "8 0XX XXX-XX-XX",
+        "internacional": "+375 XX XXX-XX-XX"
+      }
+    },
+    {
+      "pais": "Birmania (Myanmar)",
+      "iso_2": "MM",
+      "prefijo": "+95",
+      "longitud_local": 9,
+      "formatos": {
+        "nacional": "09 XXXX XXXXX",
+        "internacional": "+95 9 XXXX XXXXX"
+      }
+    },
+    {
+      "pais": "Bolivia",
+      "iso_2": "BO",
+      "prefijo": "+591",
+      "longitud_local": 8,
+      "formatos": {
+        "nacional": "X XXXX XXXX",
+        "internacional": "+591 X XXXX XXXX"
+      }
+    },
+    {
+      "pais": "Bosnia y Herzegovina",
+      "iso_2": "BA",
+      "prefijo": "+387",
+      "longitud_local": 8,
+      "formatos": {
+        "nacional": "0XX XXX XXX",
+        "internacional": "+387 XX XXX XXX"
+      }
+    },
+    {
+      "pais": "Botsuana",
+      "iso_2": "BW",
+      "prefijo": "+267",
+      "longitud_local": 8,
+      "formatos": {
+        "nacional": "XX XXX XXX",
+        "internacional": "+267 XX XXX XXX"
+      }
+    },
+    {
+      "pais": "Brasil",
+      "iso_2": "BR",
+      "prefijo": "+55",
+      "longitud_local": 11,
+      "formatos": {
+        "nacional": "(XX) 9XXXX-XXXX",
+        "internacional": "+55 XX 9XXXX-XXXX"
+      }
+    },
+    {
+      "pais": "Brunéi",
+      "iso_2": "BN",
+      "prefijo": "+673",
+      "longitud_local": 7,
+      "formatos": {
+        "nacional": "XXX XXXX",
+        "internacional": "+673 XXX XXXX"
+      }
+    },
+    {
+      "pais": "Bulgaria",
+      "iso_2": "BG",
+      "prefijo": "+359",
+      "longitud_local": 9,
+      "formatos": {
+        "nacional": "0XX XXX XXX",
+        "internacional": "+359 XX XXX XXX"
+      }
+    },
+    {
+      "pais": "Burkina Faso",
+      "iso_2": "BF",
+      "prefijo": "+226",
+      "longitud_local": 8,
+      "formatos": {
+        "nacional": "XX XX XX XX",
+        "internacional": "+226 XX XX XX XX"
+      }
+    },
+    {
+      "pais": "Burundi",
+      "iso_2": "BI",
+      "prefijo": "+257",
+      "longitud_local": 8,
+      "formatos": {
+        "nacional": "XX XX XX XX",
+        "internacional": "+257 XX XX XX XX"
+      }
+    },
+    {
+      "pais": "Bután",
+      "iso_2": "BT",
+      "prefijo": "+975",
+      "longitud_local": 8,
+      "formatos": {
+        "nacional": "17 XX XX XX",
+        "internacional": "+975 17 XX XX XX"
+      }
+    },
+    {
+      "pais": "Cabo Verde",
+      "iso_2": "CV",
+      "prefijo": "+238",
+      "longitud_local": 7,
+      "formatos": {
+        "nacional": "XXX XX XX",
+        "internacional": "+238 XXX XX XX"
+      }
+    },
+    {
+      "pais": "Camboya",
+      "iso_2": "KH",
+      "prefijo": "+855",
+      "longitud_local": 9,
+      "formatos": {
+        "nacional": "0XX XXX XXX",
+        "internacional": "+855 XX XXX XXX"
+      }
+    },
+    {
+      "pais": "Camerún",
+      "iso_2": "CM",
+      "prefijo": "+237",
+      "longitud_local": 9,
+      "formatos": {
+        "nacional": "6XX XX XX XX",
+        "internacional": "+237 6XX XX XX XX"
+      }
+    },
+    {
+      "pais": "Canadá",
+      "iso_2": "CA",
+      "prefijo": "+1",
+      "longitud_local": 10,
+      "formatos": {
+        "nacional": "XXX-XXX-XXXX",
+        "internacional": "+1 XXX-XXX-XXXX"
+      }
+    },
+    {
+      "pais": "Catar",
+      "iso_2": "QA",
+      "prefijo": "+974",
+      "longitud_local": 8,
+      "formatos": {
+        "nacional": "XXXX XXXX",
+        "internacional": "+974 XXXX XXXX"
+      }
+    },
+    {
+      "pais": "Chad",
+      "iso_2": "TD",
+      "prefijo": "+236",
+      "longitud_local": 8,
+      "formatos": {
+        "nacional": "XX XX XX XX",
+        "internacional": "+236 XX XX XX XX"
+      }
+    },
+    {
+      "pais": "Chile",
+      "iso_2": "CL",
+      "prefijo": "+56",
+      "longitud_local": 9,
+      "formatos": {
+        "nacional": "9 XXXX XXXX",
+        "internacional": "+56 9 XXXX XXXX"
+      }
+    },
+    {
+      "pais": "China",
+      "iso_2": "CN",
+      "prefijo": "+86",
+      "longitud_local": 11,
+      "formatos": {
+        "nacional": "1XX XXXX XXXX",
+        "internacional": "+86 1XX XXXX XXXX"
+      }
+    },
+    {
+      "pais": "Chipre",
+      "iso_2": "CY",
+      "prefijo": "+357",
+      "longitud_local": 8,
+      "formatos": {
+        "nacional": "XX XXXXXX",
+        "internacional": "+357 XX XXXXXX"
+      }
+    },
+    {
+      "pais": "Ciudad del Vaticano",
+      "iso_2": "VA",
+      "prefijo": "+379",
+      "longitud_local": 10,
+      "formatos": {
+        "nacional": "06 698XXXXX",
+        "internacional": "+39 06 698XXXXX"
+      }
+    },
+    {
+      "pais": "Colombia",
+      "iso_2": "CO",
+      "prefijo": "+57",
+      "longitud_local": 10,
+      "formatos": {
+        "nacional": "XXX XXX XXXX",
+        "internacional": "+57 XXX XXX XXXX"
+      }
+    },
+    {
+      "pais": "Comoras",
+      "iso_2": "KM",
+      "prefijo": "+269",
+      "longitud_local": 7,
+      "formatos": {
+        "nacional": "XXX XX XX",
+        "internacional": "+269 XXX XX XX"
+      }
+    },
+    {
+      "pais": "Corea del Norte",
+      "iso_2": "KP",
+      "prefijo": "+850",
+      "longitud_local": 8,
+      "formatos": {
+        "nacional": "02 XXX XXXX",
+        "internacional": "+850 2 XXX XXXX"
+      }
+    },
+    {
+      "pais": "Corea del Sur",
+      "iso_2": "KR",
+      "prefijo": "+82",
+      "longitud_local": 10,
+      "formatos": {
+        "nacional": "010-XXXX-XXXX",
+        "internacional": "+82 10-XXXX-XXXX"
+      }
+    },
+    {
+      "pais": "Costa de Marfil",
+      "iso_2": "CI",
+      "prefijo": "+225",
+      "longitud_local": 10,
+      "formatos": {
+        "nacional": "XX XX XX XX XX",
+        "internacional": "+225 XX XX XX XX XX"
+      }
+    },
+    {
+      "pais": "Costa Rica",
+      "iso_2": "CR",
+      "prefijo": "+506",
+      "longitud_local": 8,
+      "formatos": {
+        "nacional": "XXXX-XXXX",
+        "internacional": "+506 XXXX-XXXX"
+      }
+    },
+    {
+      "pais": "Croacia",
+      "iso_2": "HR",
+      "prefijo": "+385",
+      "longitud_local": 9,
+      "formatos": {
+        "nacional": "09X XXX XXXX",
+        "internacional": "+385 9X XXX XXXX"
+      }
+    },
+    {
+      "pais": "Cuba",
+      "iso_2": "CU",
+      "prefijo": "+53",
+      "longitud_local": 8,
+      "formatos": {
+        "nacional": "5 XXXX XXXX",
+        "internacional": "+53 5 XXXX XXXX"
+      }
+    },
+    {
+      "pais": "Dinamarca",
+      "iso_2": "DK",
+      "prefijo": "+45",
+      "longitud_local": 8,
+      "formatos": {
+        "nacional": "XX XX XX XX",
+        "internacional": "+45 XX XX XX XX"
+      }
+    },
+    {
+      "pais": "Dominica",
+      "iso_2": "DM",
+      "prefijo": "+1",
+      "longitud_local": 10,
+      "formatos": {
+        "nacional": "(767) XXX-XXXX",
+        "internacional": "+1 767 XXX XXXX"
+      }
+    },
+    {
+      "pais": "Ecuador",
+      "iso_2": "EC",
+      "prefijo": "+593",
+      "longitud_local": 9,
+      "formatos": {
+        "nacional": "09X XXX XXXX",
+        "internacional": "+593 9X XXX XXXX"
+      }
+    },
+    {
+      "pais": "Egipto",
+      "iso_2": "EG",
+      "prefijo": "+20",
+      "longitud_local": 10,
+      "formatos": {
+        "nacional": "01X XXXX XXXX",
+        "internacional": "+20 1X XXXX XXXX"
+      }
+    },
+    {
+      "pais": "El Salvador",
+      "iso_2": "SV",
+      "prefijo": "+503",
+      "longitud_local": 8,
+      "formatos": {
+        "nacional": "XXXX-XXXX",
+        "internacional": "+503 XXXX-XXXX"
+      }
+    },
+    {
+      "pais": "Emiratos Árabes Unidos",
+      "iso_2": "AE",
+      "prefijo": "+971",
+      "longitud_local": 9,
+      "formatos": {
+        "nacional": "05X XXX XXXX",
+        "internacional": "+971 5X XXX XXXX"
+      }
+    },
+    {
+      "pais": "Eritrea",
+      "iso_2": "ER",
+      "prefijo": "+291",
+      "longitud_local": 7,
+      "formatos": {
+        "nacional": "X XXXXXX",
+        "internacional": "+291 X XXXXXX"
+      }
+    },
+    {
+      "pais": "Eslovaquia",
+      "iso_2": "SK",
+      "prefijo": "+421",
+      "longitud_local": 9,
+      "formatos": {
+        "nacional": "09XX XXX XXX",
+        "internacional": "+421 9XX XXX XXX"
+      }
+    },
+    {
+      "pais": "Eslovenia",
+      "iso_2": "SI",
+      "prefijo": "+386",
+      "longitud_local": 8,
+      "formatos": {
+        "nacional": "0XX XXX XXX",
+        "internacional": "+386 XX XXX XXX"
+      }
+    },
+    {
+      "pais": "España",
+      "iso_2": "ES",
+      "prefijo": "+34",
+      "longitud_local": 9,
+      "formatos": {
+        "nacional": "XXX XX XX XX",
+        "internacional": "+34 XXX XXX XXX"
+      }
+    },
+    {
+      "pais": "Estados Unidos",
+      "iso_2": "US",
+      "prefijo": "+1",
+      "longitud_local": 10,
+      "formatos": {
+        "nacional": "(XXX) XXX-XXXX",
+        "internacional": "+1 XXX-XXX-XXXX"
+      }
+    },
+    {
+      "pais": "Estonia",
+      "iso_2": "EE",
+      "prefijo": "+372",
+      "longitud_local": 8,
+      "formatos": {
+        "nacional": "XXXX XXXX",
+        "internacional": "+372 XXXX XXXX"
+      }
+    },
+    {
+      "pais": "Etiopía",
+      "iso_2": "ET",
+      "prefijo": "+251",
+      "longitud_local": 9,
+      "formatos": {
+        "nacional": "09XX XXX XXX",
+        "internacional": "+251 9XX XXX XXX"
+      }
+    },
+    {
+      "pais": "Filipinas",
+      "iso_2": "PH",
+      "prefijo": "+63",
+      "longitud_local": 10,
+      "formatos": {
+        "nacional": "09XX XXX XXXX",
+        "internacional": "+63 9XX XXX XXXX"
+      }
+    },
+    {
+      "pais": "Finlandia",
+      "iso_2": "FI",
+      "prefijo": "+358",
+      "longitud_local": 9,
+      "formatos": {
+        "nacional": "0XX XXX XXXX",
+        "internacional": "+358 XX XXX XXXX"
+      }
+    },
+    {
+      "pais": "Fiyi",
+      "iso_2": "FJ",
+      "prefijo": "+679",
+      "longitud_local": 7,
+      "formatos": {
+        "nacional": "XXX XXXX",
+        "internacional": "+679 XXX XXXX"
+      }
+    },
+    {
+      "pais": "Francia",
+      "iso_2": "FR",
+      "prefijo": "+33",
+      "longitud_local": 9,
+      "formatos": {
+        "nacional": "0X XX XX XX XX",
+        "internacional": "+33 X XX XX XX XX"
+      }
+    },
+    {
+      "pais": "Gabón",
+      "iso_2": "GA",
+      "prefijo": "+241",
+      "longitud_local": 8,
+      "formatos": {
+        "nacional": "0X XX XX XX",
+        "internacional": "+241 X XX XX"
+      }
+    },
+    {
+      "pais": "Gambia",
+      "iso_2": "GM",
+      "prefijo": "+220",
+      "longitud_local": 7,
+      "formatos": {
+        "nacional": "XXX XXXX",
+        "internacional": "+220 XXX XXXX"
+      }
+    },
+    {
+      "pais": "Georgia",
+      "iso_2": "GE",
+      "prefijo": "+995",
+      "longitud_local": 9,
+      "formatos": {
+        "nacional": "0XX XXX XXX",
+        "internacional": "+995 XX XXX XXX"
+      }
+    },
+    {
+      "pais": "Ghana",
+      "iso_2": "GH",
+      "prefijo": "+233",
+      "longitud_local": 9,
+      "formatos": {
+        "nacional": "0XX XXX XXXX",
+        "internacional": "+233 XX XXX XXXX"
+      }
+    },
+    {
+      "pais": "Gibraltar",
+      "iso_2": "GI",
+      "prefijo": "+350",
+      "longitud_local": 8,
+      "formatos": {
+        "nacional": "XX XXXXX",
+        "internacional": "+350 XX XXXXX"
+      }
+    },
+    {
+      "pais": "Granada",
+      "iso_2": "GD",
+      "prefijo": "+1",
+      "longitud_local": 10,
+      "formatos": {
+        "nacional": "(473) XXX-XXXX",
+        "internacional": "+1 473 XXX XXXX"
+      }
+    },
+    {
+      "pais": "Grecia",
+      "iso_2": "GR",
+      "prefijo": "+30",
+      "longitud_local": 10,
+      "formatos": {
+        "nacional": "2XX XXX XXXX",
+        "internacional": "+30 2XX XXX XXXX"
+      }
+    },
+    {
+      "pais": "Guatemala",
+      "iso_2": "GT",
+      "prefijo": "+502",
+      "longitud_local": 8,
+      "formatos": {
+        "nacional": "XXXX-XXXX",
+        "internacional": "+502 XXXX-XXXX"
+      }
+    },
+    {
+      "pais": "Guinea",
+      "iso_2": "GN",
+      "prefijo": "+224",
+      "longitud_local": 9,
+      "formatos": {
+        "nacional": "6XX XX XX XX",
+        "internacional": "+224 6XX XX XX XX"
+      }
+    },
+    {
+      "pais": "Guinea Ecuatorial",
+      "iso_2": "GQ",
+      "prefijo": "+240",
+      "longitud_local": 9,
+      "formatos": {
+        "nacional": "XXX XXX XXX",
+        "internacional": "+240 XXX XXX XXX"
+      }
+    },
+    {
+      "pais": "Guinea-Bisáu",
+      "iso_2": "GW",
+      "prefijo": "+245",
+      "longitud_local": 7,
+      "formatos": {
+        "nacional": "XXX XXXX",
+        "internacional": "+245 XXX XXXX"
+      }
+    },
+    {
+      "pais": "Guyana",
+      "iso_2": "GY",
+      "prefijo": "+592",
+      "longitud_local": 7,
+      "formatos": {
+        "nacional": "XXX-XXXX",
+        "internacional": "+592 XXX-XXXX"
+      }
+    },
+    {
+      "pais": "Haití",
+      "iso_2": "HT",
+      "prefijo": "+509",
+      "longitud_local": 8,
+      "formatos": {
+        "nacional": "XX XX-XXXX",
+        "internacional": "+509 XX XX-XXXX"
+      }
+    },
+    {
+      "pais": "Honduras",
+      "iso_2": "HN",
+      "prefijo": "+504",
+      "longitud_local": 8,
+      "formatos": {
+        "nacional": "XXXX-XXXX",
+        "internacional": "+504 XXXX-XXXX"
+      }
+    },
+    {
+      "pais": "Hong Kong",
+      "iso_2": "HK",
+      "prefijo": "+852",
+      "longitud_local": 8,
+      "formatos": {
+        "nacional": "XXXX XXXX",
+        "internacional": "+852 XXXX XXXX"
+      }
+    },
+    {
+      "pais": "Hungría",
+      "iso_2": "HU",
+      "prefijo": "+36",
+      "longitud_local": 9,
+      "formatos": {
+        "nacional": "06 XX XXX XXXX",
+        "internacional": "+36 XX XXX XXXX"
+      }
+    },
+    {
+      "pais": "India",
+      "iso_2": "IN",
+      "prefijo": "+91",
+      "longitud_local": 10,
+      "formatos": {
+        "nacional": "XXXXX XXXXX",
+        "internacional": "+91 XXXXX XXXXX"
+      }
+    },
+    {
+      "pais": "Indonesia",
+      "iso_2": "ID",
+      "prefijo": "+62",
+      "longitud_local": 10,
+      "formatos": {
+        "nacional": "08XX-XXXX-XXXX",
+        "internacional": "+62 8XX-XXXX-XXXX"
+      }
+    },
+    {
+      "pais": "Irak",
+      "iso_2": "IQ",
+      "prefijo": "+964",
+      "longitud_local": 10,
+      "formatos": {
+        "nacional": "07XX XXX XXXX",
+        "internacional": "+964 7XX XXX XXXX"
+      }
+    },
+    {
+      "pais": "Irán",
+      "iso_2": "IR",
+      "prefijo": "+98",
+      "longitud_local": 10,
+      "formatos": {
+        "nacional": "09XX XXX XXXX",
+        "internacional": "+98 9XX XXX XXXX"
+      }
+    },
+    {
+      "pais": "Irlanda",
+      "iso_2": "IE",
+      "prefijo": "+353",
+      "longitud_local": 9,
+      "formatos": {
+        "nacional": "08X XXX XXXX",
+        "internacional": "+353 8X XXX XXXX"
+      }
+    },
+    {
+      "pais": "Islandia",
+      "iso_2": "IS",
+      "prefijo": "+354",
+      "longitud_local": 7,
+      "formatos": {
+        "nacional": "XXX XXXX",
+        "internacional": "+354 XXX XXXX"
+      }
+    },
+    {
+      "pais": "Israel",
+      "iso_2": "IL",
+      "prefijo": "+972",
+      "longitud_local": 9,
+      "formatos": {
+        "nacional": "05X-XXX-XXXX",
+        "internacional": "+972 5X-XXX-XXXX"
+      }
+    },
+    {
+      "pais": "Italia",
+      "iso_2": "IT",
+      "prefijo": "+39",
+      "longitud_local": 10,
+      "formatos": {
+        "nacional": "3XX XXX XXXX",
+        "internacional": "+39 3XX XXX XXXX"
+      }
+    },
+    {
+      "pais": "Jamaica",
+      "iso_2": "JM",
+      "prefijo": "+1",
+      "longitud_local": 10,
+      "formatos": {
+        "nacional": "(876) XXX-XXXX",
+        "internacional": "+1 876 XXX XXXX"
+      }
+    },
+    {
+      "pais": "Japón",
+      "iso_2": "JP",
+      "prefijo": "+81",
+      "longitud_local": 10,
+      "formatos": {
+        "nacional": "0X-XXXX-XXXX",
+        "internacional": "+81 X-XXXX-XXXX"
+      }
+    },
+    {
+      "pais": "Jordania",
+      "iso_2": "JO",
+      "prefijo": "+962",
+      "longitud_local": 9,
+      "formatos": {
+        "nacional": "07 XXXX XXXX",
+        "internacional": "+962 7 XXXX XXXX"
+      }
+    },
+    {
+      "pais": "Kazajistán",
+      "iso_2": "KZ",
+      "prefijo": "+7",
+      "longitud_local": 10,
+      "formatos": {
+        "nacional": "8 (7XX) XXX-XX-XX",
+        "internacional": "+7 7XX XXX-XX-XX"
+      }
+    },
+    {
+      "pais": "Kenia",
+      "iso_2": "KE",
+      "prefijo": "+254",
+      "longitud_local": 9,
+      "formatos": {
+        "nacional": "07XX XXXXXX",
+        "internacional": "+254 7XX XXXXXX"
+      }
+    },
+    {
+      "pais": "Kirguistán",
+      "iso_2": "KG",
+      "prefijo": "+996",
+      "longitud_local": 9,
+      "formatos": {
+        "nacional": "0XXX XX-XX-XX",
+        "internacional": "+996 XXX XX-XX-XX"
+      }
+    },
+    {
+      "pais": "Kiribati",
+      "iso_2": "KI",
+      "prefijo": "+686",
+      "longitud_local": 8,
+      "formatos": {
+        "nacional": "XXXXXXXX",
+        "internacional": "+686 XXXXXXXX"
+      }
+    },
+    {
+      "pais": "Kuwait",
+      "iso_2": "KW",
+      "prefijo": "+965",
+      "longitud_local": 8,
+      "formatos": {
+        "nacional": "XXXX XXXX",
+        "internacional": "+965 XXXX XXXX"
+      }
+    },
+    {
+      "pais": "Laos",
+      "iso_2": "LA",
+      "prefijo": "+856",
+      "longitud_local": 10,
+      "formatos": {
+        "nacional": "020 XX XXX XXX",
+        "internacional": "+856 20 XX XXX XXX"
+      }
+    },
+    {
+      "pais": "Lesoto",
+      "iso_2": "LS",
+      "prefijo": "+266",
+      "longitud_local": 8,
+      "formatos": {
+        "nacional": "XXXX XXXX",
+        "internacional": "+266 XXXX XXXX"
+      }
+    },
+    {
+      "pais": "Letonia",
+      "iso_2": "LV",
+      "prefijo": "+371",
+      "longitud_local": 8,
+      "formatos": {
+        "nacional": "2XX XX XXX",
+        "internacional": "+371 2XX XX XXX"
+      }
+    },
+    {
+      "pais": "Líbano",
+      "iso_2": "LB",
+      "prefijo": "+961",
+      "longitud_local": 8,
+      "formatos": {
+        "nacional": "03 XXX XXX",
+        "internacional": "+961 3 XXX XXX"
+      }
+    },
+    {
+      "pais": "Liberia",
+      "iso_2": "LR",
+      "prefijo": "+231",
+      "longitud_local": 9,
+      "formatos": {
+        "nacional": "0X XXX XXXX",
+        "internacional": "+231 X XXX XXXX"
+      }
+    },
+    {
+      "pais": "Libia",
+      "iso_2": "LY",
+      "prefijo": "+218",
+      "longitud_local": 9,
+      "formatos": {
+        "nacional": "09X XXX XXXX",
+        "internacional": "+218 9X XXX XXXX"
+      }
+    },
+    {
+      "pais": "Liechtenstein",
+      "iso_2": "LI",
+      "prefijo": "+423",
+      "longitud_local": 7,
+      "formatos": {
+        "nacional": "XXX XXXX",
+        "internacional": "+423 XXX XXXX"
+      }
+    },
+    {
+      "pais": "Lituania",
+      "iso_2": "LT",
+      "prefijo": "+370",
+      "longitud_local": 8,
+      "formatos": {
+        "nacional": "8 6XX XX XXX",
+        "internacional": "+370 6XX XX XXX"
+      }
+    },
+    {
+      "pais": "Luxemburgo",
+      "iso_2": "LU",
+      "prefijo": "+352",
+      "longitud_local": 9,
+      "formatos": {
+        "nacional": "XXX XXX XXX",
+        "internacional": "+352 XXX XXX XXX"
+      }
+    },
+    {
+      "pais": "Macao",
+      "iso_2": "MO",
+      "prefijo": "+853",
+      "longitud_local": 8,
+      "formatos": {
+        "nacional": "6XXX XXXX",
+        "internacional": "+853 6XXX XXXX"
+      }
+    },
+    {
+      "pais": "Macedonia del Norte",
+      "iso_2": "MK",
+      "prefijo": "+389",
+      "longitud_local": 8,
+      "formatos": {
+        "nacional": "07X XXX XXX",
+        "internacional": "+389 7X XXX XXX"
+      }
+    },
+    {
+      "pais": "Madagascar",
+      "iso_2": "MG",
+      "prefijo": "+261",
+      "longitud_local": 9,
+      "formatos": {
+        "nacional": "03X XX XXX XX",
+        "internacional": "+261 3X XX XXX XX"
+      }
+    },
+    {
+      "pais": "Malasia",
+      "iso_2": "MY",
+      "prefijo": "+60",
+      "longitud_local": 9,
+      "formatos": {
+        "nacional": "01X-XXX XXXX",
+        "internacional": "+60 1X-XXX XXXX"
+      }
+    },
+    {
+      "pais": "Malaui",
+      "iso_2": "MW",
+      "prefijo": "+265",
+      "longitud_local": 9,
+      "formatos": {
+        "nacional": "0X XXXX XXXX",
+        "internacional": "+265 X XXXX XXXX"
+      }
+    },
+    {
+      "pais": "Maldivas",
+      "iso_2": "MV",
+      "prefijo": "+960",
+      "longitud_local": 7,
+      "formatos": {
+        "nacional": "XXX-XXXX",
+        "internacional": "+960 XXX-XXXX"
+      }
+    },
+    {
+      "pais": "Malí",
+      "iso_2": "ML",
+      "prefijo": "+223",
+      "longitud_local": 8,
+      "formatos": {
+        "nacional": "XX XX XX XX",
+        "internacional": "+223 XX XX XX XX"
+      }
+    },
+    {
+      "pais": "Malta",
+      "iso_2": "MT",
+      "prefijo": "+356",
+      "longitud_local": 8,
+      "formatos": {
+        "nacional": "XXXX XXXX",
+        "internacional": "+356 XXXX XXXX"
+      }
+    },
+    {
+      "pais": "Marruecos",
+      "iso_2": "MA",
+      "prefijo": "+212",
+      "longitud_local": 9,
+      "formatos": {
+        "nacional": "06XX XX XX XX",
+        "internacional": "+212 6XX XX XX XX"
+      }
+    },
+    {
+      "pais": "Mauricio",
+      "iso_2": "MU",
+      "prefijo": "+230",
+      "longitud_local": 8,
+      "formatos": {
+        "nacional": "XXXX XXXX",
+        "internacional": "+230 XXXX XXXX"
+      }
+    },
+    {
+      "pais": "Mauritania",
+      "iso_2": "MR",
+      "prefijo": "+222",
+      "longitud_local": 8,
+      "formatos": {
+        "nacional": "XX XX XX XX",
+        "internacional": "+222 XX XX XX XX"
+      }
+    },
+    {
+      "pais": "México",
+      "iso_2": "MX",
+      "prefijo": "+52",
+      "longitud_local": 10,
+      "formatos": {
+        "nacional": "XX XXXX XXXX",
+        "internacional": "+52 XX XXXX XXXX"
+      }
+    },
+    {
+      "pais": "Micronesia",
+      "iso_2": "FM",
+      "prefijo": "+691",
+      "longitud_local": 7,
+      "formatos": {
+        "nacional": "XXX XXXX",
+        "internacional": "+691 XXX XXXX"
+      }
+    },
+    {
+      "pais": "Moldavia",
+      "iso_2": "MD",
+      "prefijo": "+373",
+      "longitud_local": 8,
+      "formatos": {
+        "nacional": "0XX XX XX XX",
+        "internacional": "+373 XX XX XX XX"
+      }
+    },
+    {
+      "pais": "Mónaco",
+      "iso_2": "MC",
+      "prefijo": "+377",
+      "longitud_local": 8,
+      "formatos": {
+        "nacional": "X XX XX XX XX",
+        "internacional": "+377 X XX XX XX XX"
+      }
+    },
+    {
+      "pais": "Mongolia",
+      "iso_2": "MN",
+      "prefijo": "+976",
+      "longitud_local": 8,
+      "formatos": {
+        "nacional": "XXXX XXXX",
+        "internacional": "+976 XXXX XXXX"
+      }
+    },
+    {
+      "pais": "Montenegro",
+      "iso_2": "ME",
+      "prefijo": "+382",
+      "longitud_local": 8,
+      "formatos": {
+        "nacional": "06X XXX XXX",
+        "internacional": "+382 6X XXX XXX"
+      }
+    },
+    {
+      "pais": "Mozambique",
+      "iso_2": "MZ",
+      "prefijo": "+258",
+      "longitud_local": 9,
+      "formatos": {
+        "nacional": "XX XXX XXXX",
+        "internacional": "+258 XX XXX XXXX"
+      }
+    },
+    {
+      "pais": "Namibia",
+      "iso_2": "NA",
+      "prefijo": "+264",
+      "longitud_local": 9,
+      "formatos": {
+        "nacional": "08X XXX XXXX",
+        "internacional": "+264 8X XXX XXXX"
+      }
+    },
+    {
+      "pais": "Nauru",
+      "iso_2": "NR",
+      "prefijo": "+674",
+      "longitud_local": 7,
+      "formatos": {
+        "nacional": "XXX XXXX",
+        "internacional": "+674 XXX XXXX"
+      }
+    },
+    {
+      "pais": "Nepal",
+      "iso_2": "NP",
+      "prefijo": "+977",
+      "longitud_local": 10,
+      "formatos": {
+        "nacional": "98XX XXXXXX",
+        "internacional": "+977 98XX XXXXXX"
+      }
+    },
+    {
+      "pais": "Nicaragua",
+      "iso_2": "NI",
+      "prefijo": "+505",
+      "longitud_local": 8,
+      "formatos": {
+        "nacional": "XXXX-XXXX",
+        "internacional": "+505 XXXX-XXXX"
+      }
+    },
+    {
+      "pais": "Níger",
+      "iso_2": "NE",
+      "prefijo": "+227",
+      "longitud_local": 8,
+      "formatos": {
+        "nacional": "XX XX XX XX",
+        "internacional": "+227 XX XX XX XX"
+      }
+    },
+    {
+      "pais": "Nigeria",
+      "iso_2": "NG",
+      "prefijo": "+234",
+      "longitud_local": 10,
+      "formatos": {
+        "nacional": "080X XXX XXXX",
+        "internacional": "+234 80X XXX XXXX"
+      }
+    },
+    {
+      "pais": "Noruega",
+      "iso_2": "NO",
+      "prefijo": "+47",
+      "longitud_local": 8,
+      "formatos": {
+        "nacional": "XXX XX XX XX",
+        "internacional": "+47 XXX XX XX XX"
+      }
+    },
+    {
+      "pais": "Nueva Zelanda",
+      "iso_2": "NZ",
+      "prefijo": "+64",
+      "longitud_local": 9,
+      "formatos": {
+        "nacional": "02X XXX XXXX",
+        "internacional": "+64 2X XXX XXXX"
+      }
+    },
+    {
+      "pais": "Omán",
+      "iso_2": "OM",
+      "prefijo": "+968",
+      "longitud_local": 8,
+      "formatos": {
+        "nacional": "9XXX XXXX",
+        "internacional": "+968 9XXX XXXX"
+      }
+    },
+    {
+      "pais": "Países Bajos",
+      "iso_2": "NL",
+      "prefijo": "+31",
+      "longitud_local": 9,
+      "formatos": {
+        "nacional": "06 XXXX XXXX",
+        "internacional": "+31 6 XXXX XXXX"
+      }
+    },
+    {
+      "pais": "Pakistán",
+      "iso_2": "PK",
+      "prefijo": "+92",
+      "longitud_local": 10,
+      "formatos": {
+        "nacional": "03XX XXXXXXX",
+        "internacional": "+92 3XX XXXXXXX"
+      }
+    },
+    {
+      "pais": "Palaos",
+      "iso_2": "PW",
+      "prefijo": "+680",
+      "longitud_local": 7,
+      "formatos": {
+        "nacional": "XXX XXXX",
+        "internacional": "+680 XXX XXXX"
+      }
+    },
+    {
+      "pais": "Palestina",
+      "iso_2": "PS",
+      "prefijo": "+970",
+      "longitud_local": 9,
+      "formatos": {
+        "nacional": "05X XXX XXXX",
+        "internacional": "+970 5X XXX XXXX"
+      }
+    },
+    {
+      "pais": "Panamá",
+      "iso_2": "PA",
+      "prefijo": "+507",
+      "longitud_local": 8,
+      "formatos": {
+        "nacional": "XXXX-XXXX",
+        "internacional": "+507 XXXX-XXXX"
+      }
+    },
+    {
+      "pais": "Papúa Nueva Guinea",
+      "iso_2": "PG",
+      "prefijo": "+675",
+      "longitud_local": 8,
+      "formatos": {
+        "nacional": "XXXX XXXX",
+        "internacional": "+675 XXXX XXXX"
+      }
+    },
+    {
+      "pais": "Paraguay",
+      "iso_2": "PY",
+      "prefijo": "+595",
+      "longitud_local": 9,
+      "formatos": {
+        "nacional": "09XX XXX XXX",
+        "internacional": "+595 9XX XXX XXX"
+      }
+    },
+    {
+      "pais": "Perú",
+      "iso_2": "PE",
+      "prefijo": "+51",
+      "longitud_local": 9,
+      "formatos": {
+        "nacional": "XXX XXX XXX",
+        "internacional": "+51 XXX XXX XXX"
+      }
+    },
+    {
+      "pais": "Polonia",
+      "iso_2": "PL",
+      "prefijo": "+48",
+      "longitud_local": 9,
+      "formatos": {
+        "nacional": "XXX XXX XXX",
+        "internacional": "+48 XXX XXX XXX"
+      }
+    },
+    {
+      "pais": "Portugal",
+      "iso_2": "PT",
+      "prefijo": "+351",
+      "longitud_local": 9,
+      "formatos": {
+        "nacional": "9XX XXX XXX",
+        "internacional": "+351 9XX XXX XXX"
+      }
+    },
+    {
+      "pais": "Puerto Rico",
+      "iso_2": "PR",
+      "prefijo": "+1",
+      "longitud_local": 10,
+      "formatos": {
+        "nacional": "(787) XXX-XXXX",
+        "internacional": "+1 787 XXX XXXX"
+      }
+    },
+    {
+      "pais": "Reino Unido",
+      "iso_2": "GB",
+      "prefijo": "+44",
+      "longitud_local": 10,
+      "formatos": {
+        "nacional": "07XXX XXXXXX",
+        "internacional": "+44 7XXX XXXXXX"
+      }
+    },
+    {
+      "pais": "República Centroafricana",
+      "iso_2": "CF",
+      "prefijo": "+236",
+      "longitud_local": 8,
+      "formatos": {
+        "nacional": "XX XX XX XX",
+        "internacional": "+236 XX XX XX XX"
+      }
+    },
+    {
+      "pais": "República Checa",
+      "iso_2": "CZ",
+      "prefijo": "+420",
+      "longitud_local": 9,
+      "formatos": {
+        "nacional": "XXX XXX XXX",
+        "internacional": "+420 XXX XXX XXX"
+      }
+    },
+    {
+      "pais": "República del Congo",
+      "iso_2": "CG",
+      "prefijo": "+242",
+      "longitud_local": 9,
+      "formatos": {
+        "nacional": "0X XX XX XX XX",
+        "internacional": "+242 X XX XX XX XX"
+      }
+    },
+    {
+      "pais": "República Democrática del Congo",
+      "iso_2": "CD",
+      "prefijo": "+243",
+      "longitud_local": 9,
+      "formatos": {
+        "nacional": "0XX XXX XXX",
+        "internacional": "+243 XX XXX XXX"
+      }
+    },
+    {
+      "pais": "República Dominicana",
+      "iso_2": "DO",
+      "prefijo": "+1",
+      "longitud_local": 10,
+      "formatos": {
+        "nacional": "(809) XXX-XXXX",
+        "internacional": "+1 809 XXX XXXX"
+      }
+    },
+    {
+      "pais": "Ruanda",
+      "iso_2": "RW",
+      "prefijo": "+250",
+      "longitud_local": 9,
+      "formatos": {
+        "nacional": "07X XXX XXX",
+        "internacional": "+250 7X XXX XXX"
+      }
+    },
+    {
+      "pais": "Rumanía",
+      "iso_2": "RO",
+      "prefijo": "+40",
+      "longitud_local": 9,
+      "formatos": {
+        "nacional": "07XX XXX XXX",
+        "internacional": "+40 7XX XXX XXX"
+      }
+    },
+    {
+      "pais": "Rusia",
+      "iso_2": "RU",
+      "prefijo": "+7",
+      "longitud_local": 10,
+      "formatos": {
+        "nacional": "8 (9XX) XXX-XX-XX",
+        "internacional": "+7 9XX XXX-XX-XX"
+      }
+    },
+    {
+      "pais": "Samoa",
+      "iso_2": "WS",
+      "prefijo": "+685",
+      "longitud_local": 7,
+      "formatos": {
+        "nacional": "XX XXXXX",
+        "internacional": "+685 XX XXXXX"
+      }
+    },
+    {
+      "pais": "San Cristóbal y Nieves",
+      "iso_2": "KN",
+      "prefijo": "+1",
+      "longitud_local": 10,
+      "formatos": {
+        "nacional": "(869) XXX-XXXX",
+        "internacional": "+1 869 XXX XXXX"
+      }
+    },
+    {
+      "pais": "San Marino",
+      "iso_2": "SM",
+      "prefijo": "+378",
+      "longitud_local": 10,
+      "formatos": {
+        "nacional": "0549 XXXXXX",
+        "internacional": "+378 0549 XXXXXX"
+      }
+    },
+    {
+      "pais": "San Vicente y las Granadinas",
+      "iso_2": "VC",
+      "prefijo": "+1",
+      "longitud_local": 10,
+      "formatos": {
+        "nacional": "(784) XXX-XXXX",
+        "internacional": "+1 784 XXX XXXX"
+      }
+    },
+    {
+      "pais": "Santa Lucía",
+      "iso_2": "LC",
+      "prefijo": "+1",
+      "longitud_local": 10,
+      "formatos": {
+        "nacional": "(758) XXX-XXXX",
+        "internacional": "+1 758 XXX XXXX"
+      }
+    },
+    {
+      "pais": "Santo Tomé y Príncipe",
+      "iso_2": "ST",
+      "prefijo": "+239",
+      "longitud_local": 7,
+      "formatos": {
+        "nacional": "XXX XXXX",
+        "internacional": "+239 XXX XXXX"
+      }
+    },
+    {
+      "pais": "Senegal",
+      "iso_2": "SN",
+      "prefijo": "+221",
+      "longitud_local": 9,
+      "formatos": {
+        "nacional": "77 XXX XX XX",
+        "internacional": "+221 77 XXX XX XX"
+      }
+    },
+    {
+      "pais": "Serbia",
+      "iso_2": "RS",
+      "prefijo": "+381",
+      "longitud_local": 9,
+      "formatos": {
+        "nacional": "06X XXX XXXX",
+        "internacional": "+381 6X XXX XXXX"
+      }
+    },
+    {
+      "pais": "Seychelles",
+      "iso_2": "SC",
+      "prefijo": "+248",
+      "longitud_local": 7,
+      "formatos": {
+        "nacional": "X XXX XXX",
+        "internacional": "+248 X XXX XXX"
+      }
+    },
+    {
+      "pais": "Sierra Leona",
+      "iso_2": "SL",
+      "prefijo": "+232",
+      "longitud_local": 8,
+      "formatos": {
+        "nacional": "0XX XX XX XX",
+        "internacional": "+232 XX XX XX XX"
+      }
+    },
+    {
+      "pais": "Singapur",
+      "iso_2": "SG",
+      "prefijo": "+65",
+      "longitud_local": 8,
+      "formatos": {
+        "nacional": "XXXX XXXX",
+        "internacional": "+65 XXXX XXXX"
+      }
+    },
+    {
+      "pais": "Siria",
+      "iso_2": "SY",
+      "prefijo": "+963",
+      "longitud_local": 9,
+      "formatos": {
+        "nacional": "09XX XXX XXX",
+        "internacional": "+963 9XX XXX XXX"
+      }
+    },
+    {
+      "pais": "Somalia",
+      "iso_2": "SO",
+      "prefijo": "+252",
+      "longitud_local": 9,
+      "formatos": {
+        "nacional": "06X XXX XXXX",
+        "internacional": "+252 6X XXX XXXX"
+      }
+    },
+    {
+      "pais": "Sri Lanka",
+      "iso_2": "LK",
+      "prefijo": "+94",
+      "longitud_local": 9,
+      "formatos": {
+        "nacional": "07X XXX XXXX",
+        "internacional": "+94 7X XXX XXXX"
+      }
+    },
+    {
+      "pais": "Sudáfrica",
+      "iso_2": "ZA",
+      "prefijo": "+27",
+      "longitud_local": 9,
+      "formatos": {
+        "nacional": "0XX XXX XXXX",
+        "internacional": "+27 XX XXX XXXX"
+      }
+    },
+    {
+      "pais": "Sudán",
+      "iso_2": "SD",
+      "prefijo": "+249",
+      "longitud_local": 9,
+      "formatos": {
+        "nacional": "09X XXX XXXX",
+        "internacional": "+249 9X XXX XXXX"
+      }
+    },
+    {
+      "pais": "Sudán del Sur",
+      "iso_2": "SS",
+      "prefijo": "+211",
+      "longitud_local": 9,
+      "formatos": {
+        "nacional": "09X XXX XXXX",
+        "internacional": "+211 9X XXX XXXX"
+      }
+    },
+    {
+      "pais": "Suecia",
+      "iso_2": "SE",
+      "prefijo": "+46",
+      "longitud_local": 9,
+      "formatos": {
+        "nacional": "07X-XXX XX XX",
+        "internacional": "+46 7X-XXX XX XX"
+      }
+    },
+    {
+      "pais": "Suiza",
+      "iso_2": "CH",
+      "prefijo": "+41",
+      "longitud_local": 9,
+      "formatos": {
+        "nacional": "07X XXX XX XX",
+        "internacional": "+41 7X XXX XX XX"
+      }
+    },
+    {
+      "pais": "Surinam",
+      "iso_2": "SR",
+      "prefijo": "+597",
+      "longitud_local": 7,
+      "formatos": {
+        "nacional": "XXX-XXXX",
+        "internacional": "+597 XXX-XXXX"
+      }
+    },
+    {
+      "pais": "Suazilandia (Eswatini)",
+      "iso_2": "SZ",
+      "prefijo": "+268",
+      "longitud_local": 8,
+      "formatos": {
+        "nacional": "7XXX XXXX",
+        "internacional": "+268 7XXX XXXX"
+      }
+    },
+    {
+      "pais": "Tailandia",
+      "iso_2": "TH",
+      "prefijo": "+66",
+      "longitud_local": 9,
+      "formatos": {
+        "nacional": "08 XXXX XXXX",
+        "internacional": "+66 8 XXXX XXXX"
+      }
+    },
+    {
+      "pais": "Taiwán",
+      "iso_2": "TW",
+      "prefijo": "+886",
+      "longitud_local": 9,
+      "formatos": {
+        "nacional": "09XX XXX XXX",
+        "internacional": "+886 9XX XXX XXX"
+      }
+    },
+    {
+      "pais": "Tanzania",
+      "iso_2": "TZ",
+      "prefijo": "+255",
+      "longitud_local": 9,
+      "formatos": {
+        "nacional": "07XX XXX XXX",
+        "internacional": "+255 7XX XXX XXX"
+      }
+    },
+    {
+      "pais": "Tayikistán",
+      "iso_2": "TJ",
+      "prefijo": "+992",
+      "longitud_local": 9,
+      "formatos": {
+        "nacional": "XX XXX XXXX",
+        "internacional": "+992 XX XXX XXXX"
+      }
+    },
+    {
+      "pais": "Togo",
+      "iso_2": "TG",
+      "prefijo": "+228",
+      "longitud_local": 8,
+      "formatos": {
+        "nacional": "XX XX XX XX",
+        "internacional": "+228 XX XX XX XX"
+      }
+    },
+    {
+      "pais": "Tonga",
+      "iso_2": "TO",
+      "prefijo": "+676",
+      "longitud_local": 7,
+      "formatos": {
+        "nacional": "XX XXX",
+        "internacional": "+676 XX XXX"
+      }
+    },
+    {
+      "pais": "Trinidad y Tobago",
+      "iso_2": "TT",
+      "prefijo": "+1",
+      "longitud_local": 10,
+      "formatos": {
+        "nacional": "(868) XXX-XXXX",
+        "internacional": "+1 868 XXX XXXX"
+      }
+    },
+    {
+      "pais": "Túnez",
+      "iso_2": "TN",
+      "prefijo": "+216",
+      "longitud_local": 8,
+      "formatos": {
+        "nacional": "XX XXX XXX",
+        "internacional": "+216 XX XXX XXX"
+      }
+    },
+    {
+      "pais": "Turkmenistán",
+      "iso_2": "TM",
+      "prefijo": "+993",
+      "longitud_local": 8,
+      "formatos": {
+        "nacional": "6X XX-XX-XX",
+        "internacional": "+993 6X XX-XX-XX"
+      }
+    },
+    {
+      "pais": "Turquía",
+      "iso_2": "TR",
+      "prefijo": "+90",
+      "longitud_local": 10,
+      "formatos": {
+        "nacional": "05XX XXX XX XX",
+        "internacional": "+90 5XX XXX XX XX"
+      }
+    },
+    {
+      "pais": "Tuvalu",
+      "iso_2": "TV",
+      "prefijo": "+688",
+      "longitud_local": 5,
+      "formatos": {
+        "nacional": "XXXXX",
+        "internacional": "+688 XXXXX"
+      }
+    },
+    {
+      "pais": "Ucrania",
+      "iso_2": "UA",
+      "prefijo": "+380",
+      "longitud_local": 9,
+      "formatos": {
+        "nacional": "0XX XXX XX XX",
+        "internacional": "+380 XX XXX XX XX"
+      }
+    },
+    {
+      "pais": "Uganda",
+      "iso_2": "UG",
+      "prefijo": "+256",
+      "longitud_local": 9,
+      "formatos": {
+        "nacional": "07XX XXX XXX",
+        "internacional": "+256 7XX XXX XXX"
+      }
+    },
+    {
+      "pais": "Uruguay",
+      "iso_2": "UY",
+      "prefijo": "+598",
+      "longitud_local": 8,
+      "formatos": {
+        "nacional": "09X XXX XXX",
+        "internacional": "+598 9X XXX XXX"
+      }
+    },
+    {
+      "pais": "Uzbekistán",
+      "iso_2": "UZ",
+      "prefijo": "+998",
+      "longitud_local": 9,
+      "formatos": {
+        "nacional": "XX XXX XX XX",
+        "internacional": "+998 XX XXX XX XX"
+      }
+    },
+    {
+      "pais": "Vanuatu",
+      "iso_2": "VU",
+      "prefijo": "+678",
+      "longitud_local": 7,
+      "formatos": {
+        "nacional": "XX XXXXX",
+        "internacional": "+678 XX XXXXX"
+      }
+    },
+    {
+      "pais": "Venezuela",
+      "iso_2": "VE",
+      "prefijo": "+58",
+      "longitud_local": 10,
+      "formatos": {
+        "nacional": "04XX-XXXXXXX",
+        "internacional": "+58 4XX-XXXXXXX"
+      }
+    },
+    {
+      "pais": "Vietnam",
+      "iso_2": "VN",
+      "prefijo": "+84",
+      "longitud_local": 9,
+      "formatos": {
+        "nacional": "03XX XXX XXX",
+        "internacional": "+84 3XX XXX XXX"
+      }
+    },
+    {
+      "pais": "Yemen",
+      "iso_2": "YE",
+      "prefijo": "+967",
+      "longitud_local": 9,
+      "formatos": {
+        "nacional": "7XX XXX XXX",
+        "internacional": "+967 7XX XXX XXX"
+      }
+    },
+    {
+      "pais": "Yibuti",
+      "iso_2": "DJ",
+      "prefijo": "+253",
+      "longitud_local": 8,
+      "formatos": {
+        "nacional": "XX XX XX XX",
+        "internacional": "+253 XX XX XX XX"
+      }
+    },
+    {
+      "pais": "Zambia",
+      "iso_2": "ZM",
+      "prefijo": "+260",
+      "longitud_local": 9,
+      "formatos": {
+        "nacional": "09XX XXX XXX",
+        "internacional": "+260 9XX XXX XXX"
+      }
+    },
+    {
+      "pais": "Zimbabue",
+      "iso_2": "ZW",
+      "prefijo": "+263",
+      "longitud_local": 9,
+      "formatos": {
+        "nacional": "07XX XXX XXX",
+        "internacional": "+263 7XX XXX XXX"
+      }
+    }
+  ]
+}
+  )
+  if format-/-prefijo ==¡ match 
+  return 405
+  else return verification code 
+  generate-verificationCode(000000*999999Random%Number)
+  create -&Entitie"VerC"
+  if writenCode ==¡ match VerC 
+  return 405
+  else return 200
+
