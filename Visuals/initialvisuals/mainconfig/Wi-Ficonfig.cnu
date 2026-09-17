@@ -6,6 +6,33 @@ _MAGIC3HEADER-VISUALINTERFACE(
   _BACKGROUND(GET*./background.cnu, _DIFUMINE::70%);
 _MF_RTOWINDOW{
   _SIZE(SCREENFULLWINDOW%70SCREEN);
-  _CONTENT();
+  _CONTENT(
+_STYLE(:import themes FROM ./styles.cnu -& USEatStyles);
+USE-Wi-FiRead -&DetectWi-FiNetworks-&listList
+_LIST {
+ 'Wi-FiName': 'Yes',
+ 'Wi-FiIPAddress': 'Yes',
+ 'Wi-FiSignalIntensity': 'Yes',
+ 'Wi-FiEncryptTipe': 'Yes'
+}
+GET*WiFiPassword(798_115000189_0500028900200010087)
+_CREATE-ENTITIE"passwordGiven"
+if passwordWrited ==¡ match passwordGiven(: ==¡ connectWiFi)
+else getIP(799_115000190_0500029000201010088)-&Comprobe(800_116000191_0500029100202010089)
+if processState-&"Finnished"-connectWi-Fi
+wait connection(WAIT)
+if connectionState-&"Conected"ActivateButton-nextButton
+
+_NEXTBUTTON(
+_DESIGN(usethemes);
+predet-color: gray;
+_CLIKABLE: no;
+_STATE: dissabled;
+change _STATE for Enabled if connectionState-&"Connected"
+if _STATE-&"Enabled"ChangeColor:Blue*_CLIKABLE:yes
+when userInteraction-&"Pulse"
+return redirect300
+redirect*./activationscreen.cnu
+)
 }
 )
