@@ -6,7 +6,7 @@
 
 ## What is dreaOS?
 
-dreaOS is not intended to be a Unix-like system with a different interface. Its execution model is being designed around its own language, instruction architecture, boot flow, filesystem model and system processes.
+dreaOS is not intended to be a Unix-like system with a different interface. Its execution model is being designed around its own language, instruction architecture, boot flow, filesystem model, system processes and system codes.
 
 ```text
                          dreaOS
@@ -63,80 +63,127 @@ The architectural distinction is simple: **CNU describes system code and behavio
 
 **ARD50** is dreaOS's instruction architecture. It is not a package manager or conventional library. CNU can invoke ARD50 instructions using their architecture identifiers.
 
-The numeric identifiers are deliberately structured according to the ARD50 numbering system. They are part of the architecture and are not arbitrary labels.
+The numeric identifiers are part of the architecture and are defined in `ARD50/ard50.exe`.
 
 ### Current ARD50 instruction set
 
-The current `ARD50/ard50.exe` definition contains these instructions and operations:
+The following table reflects the current instruction definitions in `ARD50/ard50.exe`.
 
-| Instruction | Operation |
-|---|---|
-| `UN` | JIT |
-| `DFR` | Drawer |
-| `DFX` | Painter |
-| `TRO` | Virtualitation |
-| `TRP` | OpenApp |
-| `TRE` | LoadArchive |
-| `TRA` | UploadImage |
-| `TRW` | CableDetection |
-| `FGPD` | DataTransfear |
-| `FPG` | DataParser |
-| `FGP` | DataZIP |
-| `FPSE` | DataUNZIP |
-| `PSE` | DataReader |
-| `FPS` | DataWriter |
-| `DET` | Imput |
-| `TED` | DisplayPortManager |
-| `GET` | Get* / collect data |
-| `JITT` | VMInteraction |
-| `VOR` | Permissums |
-| `DAT` | AudioPlayer |
-| `WRT` | VideoPlayer |
-| `WET` | ImageViewer |
-| `NED` | TypeArchive |
-| `NET` | ArchiveViewer |
-| `NAD` | ArchiveIdentifier |
-| `HTF` | ImageBitInfo |
-| `NFFO` | ImageColors |
-| `NID` | VideoFrame |
-| `IDO` | FrameBuffer |
-| `LAK` | FrameByFrame |
-| `LRZ` | PiP / Picture-in-Picture |
-| `LNK` | AudioManager |
-| `SSO` | AudioBuffer |
-| `DAOS` | AudioDriver |
-| `DOS` | VMAction |
-| `DOX` | DocEditor |
-| `DOCX` | Graphics |
-| `ARCX` | GraphicsV2 |
-| `RDD` | TurnOff |
-| `DRR` | TurnOn |
-| `FDO` | ReadWi-FiSignal |
-| `FDE` | Wi-FiDriver |
-| `IDE` | Wi-FiConnect |
-| `NEW` | ReadBluetoothDevices |
-| `BOL` | BluetoothDriver |
-| `BAL` | BluetoothConnect |
-| `REST` | ReadBatteryCapacity |
-| `API` | Read"%"Baterry |
-| `IPA` | ReadChargeCiclesBattery |
-| `INT` | ReadBatteryHealth |
-| `UNT` | ScreenDriver |
-| `UND` | ScreenViewer |
-| `YED` | ScreenInteracts |
-| `SIS` | SystemStart |
-| `SES` | SystemShutDown |
-| `SAS` | SystemRestart |
-| `SOS` | SystemKillProcess |
-| `SUS` | SystemProcess |
+| ID | Instruction | Operation |
+|---:|---|---|
+| `407` | `UN` | `JIT` |
+| `708` | `DFR` | `Drawer` |
+| `709` | `DFX` | `Painter` |
+| `710` | `TRO` | `Virtualitation` |
+| `711` | `TRP` | `OpenApp` |
+| `712` | `TRE` | `LoadArchive` |
+| `713` | `TRA` | `UploadImage` |
+| `714` | `TRW` | `CableDetection` |
+| `715` | `FPG` | `DataParser` |
+| `716` | `FGP` | `DataZIP` |
+| `717` | `PSE` | `DataReader` |
+| `718` | `FPS` | `DataWriter` |
+| `719` | `DET` | `Imput` |
+| `720` | `TED` | `DisplayPortManager` |
+| `721` | `GET` | `Get* / collect data` |
+| `722` | `VOR` | `Permissums` |
+| `723` | `DAT` | `AudioPlayer` |
+| `724` | `WRT` | `VideoPlayer` |
+| `725` | `WET` | `ImageViewer` |
+| `726` | `NED` | `TypeArchive` |
+| `727` | `NET` | `ArchiveViewer` |
+| `728` | `NAD` | `ArchiveIdentifier` |
+| `729` | `HTF` | `ImageBitInfo` |
+| `730` | `NID` | `VideoFrame` |
+| `731` | `IDO` | `FrameBuffer` |
+| `732` | `LAK` | `FrameByFrame` |
+| `732` | `LRZ` | `PiP/PictureinPicture` |
+| `733` | `LNK` | `AudioManager` |
+| `734` | `SSO` | `AudioBuffer` |
+| `735` | `DOS` | `VMAction` |
+| `736` | `DOX` | `DocEditor` |
+| `737` | `EDD` | `TurnOff` |
+| `738` | `DRR` | `TurnOn` |
+| `739` | `FDO` | `ReadWi-FiSignal` |
+| `740` | `FDE` | `Wi-FiDriver` |
+| `741` | `IDE` | `Wi-FiConnect` |
+| `742` | `NEW` | `ReadBluetoothDevices` |
+| `743` | `BOL` | `BluetoothDriver` |
+| `744` | `BAL` | `BluetoothConnect` |
+| `745` | `API` | `Read"%"Baterry` |
+| `746` | `IPA` | `ReadChargeCiclesBattery` |
+| `747` | `INT` | `ReadBatteryHealth` |
+| `748` | `UNT` | `ScreenDriver` |
+| `749` | `UND` | `ScreenViewer` |
+| `750` | `YED` | `ScreenInteracts` |
+| `751` | `SIS` | `SystemStart` |
+| `752` | `SES` | `SystemShutDown` |
+| `753` | `SAS` | `SystemRestart` |
+| `754` | `SOS` | `SystemKillProcess` |
+| `755` | `SUS` | `SystemProcess` |
+| `756` | `MEM` | `MemoryReader` |
+| `757` | `MAM` | `MemoryCapacityReader` |
+| `758` | `MIM` | `MemoryAlibableReader` |
+| `759` | `MOM` | `MemoryDataReader` |
+| `760` | `MUM` | `MemoryWriter` |
+| `761` | `MEN` | `MemoryAllWriter` |
+| `762` | `MAN` | `MemoryVerification` |
+| `763` | `MIN` | `MemorySecurity` |
+| `764` | `MON` | `MemoryEncode` |
+| `765` | `MUN` | `MemoryDataEncode256UNF` |
+| `766` | `RAM` | `RAMReader` |
+| `767` | `REM` | `RAMAllReader` |
+| `768` | `RIM` | `RAMWriter` |
+| `769` | `ROM` | `RAMProtect` |
+| `770` | `RUM` | `RAMRestart` |
+| `771` | `RAN` | `RAMReadCapacity` |
+| `772` | `REN` | `RAMReadType` |
+| `773` | `RIN` | `RAMReset` |
+| `774` | `RON` | `RAMOfused` |
+| `775` | `RUN` | `RUNProcess` |
+| `776` | `MER` | `MemoryStart` |
+| `777` | `MOR` | `MemoryShutDown` |
+| `778` | `MIR` | `MemoryCrash` |
+| `779` | `RAR` | `RAMStart` |
+| `780` | `RER` | `RAMShutSown` |
+| `781` | `RIR` | `RAMCrash` |
+| `782` | `ARU` | `UploadArchiveReader` |
+| `783` | `AED` | `UploadArchiveWriter` |
+| `784` | `AID` | `UploadArchive` |
+| `785` | `VGP` | `VirtualGPU` |
+| `786` | `VCP` | `VirtualCPU` |
+| `787` | `ISK` | `UseDisk` |
+| `788` | `GSI` | `GPUStateInspect` |
+| `789` | `CSI` | `CPUStateInspect` |
+| `790` | `GSD` | `GPUStateDetachState` |
+| `791` | `CSD` | `CPUStateDetachState` |
+| `792` | `GCR` | `GPUCorruptionRecovery` |
+| `793` | `CCR` | `CPUCorruptionRecovery` |
+| `794` | `GRS` | `GPUResetState` |
+| `795` | `CRS` | `CPUResetState` |
+| `796` | `GCK` | `GPUStateCheck` |
+| `797` | `CCK` | `CPUStateCheck` |
+| `798` | `WIF` | `Wi-FiGetPassword` |
+| `799` | `WAF` | `Wi-FiGetIP` |
+| `800` | `WEF` | `Wi-FiComprober` |
+| `915` | `FGPD` | `DataTransfear` |
+| `916` | `FPSE` | `DataUNZIP` |
+| `917` | `JITT` | `VMInteraction` |
+| `918` | `NFFO` | `ImageColors` |
+| `919` | `DAOS` | `AudioDriver` |
+| `920` | `DOCX` | `Graphics` |
+| `921` | `ARCX` | `GraphicsV2` |
+| `922` | `SEST` | `ReadBatteryCapacity` |
 
-The spellings above intentionally follow the current ARD50 source, including names such as `Virtualitation`, `DataTransfear`, `Imput` and `Permissums`.
+The spellings above intentionally follow the current ARD50 source, including names such as `Virtualitation`, `DataTransfear`, `Imput`, `Permissums`, `RAMShutSown` and `ReadChargeCiclesBattery`.
 
 ### ARD50 instruction families
 
-**System and process control:** `SIS`, `SES`, `SAS`, `SOS`, `SUS`, `RDD`, `DRR`, `UN`, `JITT`, `DOS`.
+**System and process control:** `SIS`, `SES`, `SAS`, `SOS`, `SUS`, `EDD`, `DRR`, `RUN`, `UN`, `JITT`, `DOS`.
 
-**Filesystem, archives and data:** `TRE`, `FGPD`, `FPG`, `FPSE`, `PSE`, `FPS`, `NED`, `NET`, `NAD`, `DOX`.
+**Memory and RAM:** `MEM`, `MAM`, `MIM`, `MOM`, `MUM`, `MEN`, `MAN`, `MIN`, `MON`, `MUN`, `RAM`, `REM`, `RIM`, `ROM`, `RUM`, `RAN`, `REN`, `RIN`, `RON`, `MER`, `MOR`, `MIR`, `RAR`, `RER`, `RIR`.
+
+**Filesystem, archives and data:** `TRE`, `FGPD`, `FPG`, `FGP`, `FPSE`, `PSE`, `FPS`, `NED`, `NET`, `NAD`, `DOX`, `ARU`, `AED`, `AID`, `GET`.
 
 **Graphics, display and media:** `DFR`, `DFX`, `TRA`, `TED`, `WET`, `DOCX`, `ARCX`, `HTF`, `NFFO`, `NID`, `IDO`, `LAK`, `LRZ`, `DET`.
 
@@ -144,13 +191,42 @@ The spellings above intentionally follow the current ARD50 source, including nam
 
 **Video:** `WRT`, `NID`, `IDO`, `LAK`, `LRZ`.
 
-**Connectivity and device access:** `FDO`, `FDE`, `IDE`, `NEW`, `BOL`, `BAL`, `REST`, `API`, `IPA`, `INT`.
+**Connectivity and device access:** `TRW`, `FDO`, `FDE`, `IDE`, `NEW`, `BOL`, `BAL`, `WIF`, `WAF`, `WEF`, `SEST`, `API`, `IPA`, `INT`.
 
-**Virtualisation and applications:** `TRO`, `TRP`, `UN`, `JITT`, `DOS`.
+**Virtualisation and applications:** `TRO`, `TRP`, `VOR`, `UN`, `JITT`, `DOS`, `VGP`, `VCP`, `ISK`.
+
+**CPU/GPU state and recovery:** `GSI`, `CSI`, `GSD`, `CSD`, `GCR`, `CCR`, `GRS`, `CRS`, `GCK`, `CCK`.
 
 **Screen interaction:** `UNT`, `UND`, `YED`.
 
 These categories describe roles, not application-level substitutes. dreaOS deliberately exposes differentiated capabilities such as screen driving, screen viewing and screen interaction.
+
+## JUT system codes
+
+JUT has its own internal system-code vocabulary. These values are **not HTTP status codes**. They are semantic codes defined by dreaOS in `kernel/codes.cnu`.
+
+| Code | Meaning |
+|---:|---|
+| `140` | `UndeterminatedObject` |
+| `200` | `OKOperationSuccess` |
+| `350` | `ComprobeThing` |
+| `400` | `ERROROperationError` |
+| `405` | `Invalid` |
+| `500` | `UnalivableServer` |
+| `503` | `UnexistantMethod` |
+| `600` | `FAIL` |
+| `769` | `UndeterminatedInterrupt` |
+| `800` | `InterruptedOperation` |
+| `806` | `LostenObject` |
+| `850` | `LostenData` |
+| `900` | `LostenArchive` |
+| `905` | `UnactiveProcess` |
+| `920` | `ComprobeProcess` |
+| `940` | `ComprobeProcessStatus` |
+| `1000` | `Unsuccess` |
+| `1109` | `InvalidCommand` |
+
+The JUT codes are used as semantic results/states inside the dreaOS execution model. They should not be interpreted as HTTP codes.
 
 ## Files dreaOS recognises, reads and processes
 
@@ -313,7 +389,17 @@ filesystem/
 
 kernel/
 ├── ard50.dpd.cnu
+├── codes.cnu
 └── kernelinit.cnu
+
+memory/
+├── memoryalivable.cnu
+├── memorycapacity.cnu
+├── memorydatareader.cnu
+├── memorydatawriter.cnu
+├── memorysecurity.cnu
+├── memoryslot.cnu
+└── memoryverification.cnu
 
 pls/
 └── plist/
