@@ -1,0 +1,7 @@
+_MG3-VISUALINTERFACE(
+  _BACKGROUND(COLOR:WHITE)
+  _MODELATEDACCOUNT(
+  import AnimationAccount FROM *AnimationRepo^^
+  )
+  import prefix, format, accountmodal
+  import AppleDesignAccountInitialConfigScreen FROM *PageRepo^^
