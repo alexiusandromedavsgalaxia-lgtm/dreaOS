@@ -16,6 +16,6 @@
    '920': 'ComprobeProcess',
    '940': 'ComprobeProcessStatus',
    '1000': 'Unsuccess',
-   '1109': 'InvalidCommand
-
+   '1109': 'InvalidCommand'
+_finished_
 }
