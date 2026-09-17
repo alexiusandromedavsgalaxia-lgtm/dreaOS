@@ -1,0 +1,14 @@
+_MGXSCREEN-VISUALSTYLE(
+  _STYLE(import themes FROM ./styles.cnu)
+  _MGDX3-HEADER(
+    _CONNECTSERVER(./activationserver.jut)
+  _PARSECODE(PARSE)
+  if activationRequest -&"Correct"
+  return 200 Operation Completed
+return redirect300
+return redirect ./accountpage.cnu
+  else return unactivated
+  _INTERFACE{
+_BACKGROUND(COLOR:Cream)
+    _MFD_TEXT-POSITION(MEDIUMSCREEN:("Activating.....")(UNDERTEXT:("This action will take a few minutes"))-STYLE(COLOR:BLACK)-STYLE2TEXT(COLOR:BLACK)
+  }
