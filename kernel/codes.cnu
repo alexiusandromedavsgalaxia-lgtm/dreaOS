@@ -1,0 +1,21 @@
+{
+ '140': 'UndeterminatedObject',
+   '200': 'OKOperationSuccess',
+   '350': 'ComprobeThing',
+   '400': 'ERROROperationError'
+   '405': 'Invalid',
+   '500': 'UnalivableServer',
+   '503': 'UnexistantMethod',
+   '600': 'FAIL',
+   '769': 'UndeterminatedInterrupt',
+   '800': 'InterruptedOperation',
+   '806': 'LostenObject',
+   '850': 'LostenData',
+   '900': 'LostenArchive',
+   '905': 'UnactiveProcess',
+   '920': 'ComprobeProcess',
+   '940': 'ComprobeProcessStatus',
+   '1000': 'Unsuccess',
+   '1109': 'InvalidCommand
+
+}
