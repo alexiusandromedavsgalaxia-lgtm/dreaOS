@@ -149,3 +149,4 @@ _CURSOR(
 )
 }
 )
+export default { windowbuttons, configwindowbuttons exteriorconfigdesign }
