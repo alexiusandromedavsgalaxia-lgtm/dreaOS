@@ -1,13 +1,151 @@
-_MAGIC3HEADER-VISUALINTERFACE(
-  _BACKGROUND(IMAGEFETCHURL="https://pin.it/5m0FHZXL8");
-  _LOGOVISUAL(POSITION-&TOPSCREEN);
-_MAGIC64-U30-40F30-024092-92_92-93020
-  _MAGIC64-CODE{
-  int create button{
-  design(color:DYNAMICCOLOR; variantDynamicInterface)
-_content(text:"Continue");
-if user -&action"touch-button"
-  return redirect300
-  redirect *./Wi-Ficonfig.cnu
-  }
-})
+_MAGIC3-VISUALINTERFACE(
+RIGHT_SCREEN(
+DESIGN(
+_POSITION_EDDUNT_6594400233550035400222400330211023(91100011'O2)
+_COLOR_COLOR(WHITE)
+_MAINPALLETTE(LIGHT-GRAY, BLACK, WHITE)
+_PANEL(
+--BUTTONS{
+buttonCloud(
+_DESIGN(cloud.png)
+_BORDERS(MARKBORDERS-BLACK)
+_COLORS(FFD:DEG_INTDEGRADE-FADE1WHITE-FADE2LIGHTGRAY)
+buttonFuncionality(
+if userAction:ClickButton = true
+return despliege-menu"menucdd"
+)
+menucdd{
+_OPTIONS[
+*(Ågg kåk PC)*
+-----------------
+*(Ôfegen såsten giådrösen..)*.*OPTION-DISABLED.*ACTION(OpenApp.*SystemSettings)
+*(Ôfegen Åpp Fêd)*.*OPTION-DISABLED.*ACTION(OpenApp.*AppStore)
+*(Rêdgtad)*.*ACTION(RestartSystem)
+*(Vrågen)*.*ACTION(ShutDownSystem)
+*(Süspend)*.*ACTION(LockScreen)
+]
+}
+)
+buttonInfo(
+_DESIGN("ℹ️")
+if userAction:ClickButton(
+_TEXT("Nå fågladen dör ińdunchtåglen")
+)
+)
+buttonPause(
+_DESIGN(">.")
+if userAction:ClickButton(
+_PAUSE-ACTION.*INSTALLATION
+_SAVESTEP-&INFOTYPED
+_STATE*.Paused*ChangeDESIGN("▶️")
+if userAction:ClickButton*IfIsPaused*.ContinueInstallation#continue*
+)
+)
+}
+)
+)
+) 
+
+_HDDR34_WINDOW{
+DEFAULT_window(
+_DEFAULT-Size:AllScreen*size: 16:10*
+_RIGHT(
+--BUTTONS{
+buttonClose(
+_icon("X"Color:Red)
+_ACTION(CloseWindow)
+)
+buttonMinimize(
+_icon("-"Color:Yellow)
+_ACTION(MinimizeWindow, SaveLastState!, SaveAppOpenedInDock)
+)
+buttonExpande(
+_icon("<>"Color:Green)
+_ACTION(OpenMenu"WindowPositionMenu")
+WindowPositionMenu(
+_OPTIONS [
+O1*IPositionScreenSquareTopLeft8-5Size*ACTION(PoseWindowOn:ScreenLeftTopCorner, size: 8:5, resizeable: yes)
+O2*IPositionScreenSquareUnderLeft8-5Size*ACTION(PoseWindowOn:ScreenLeftUnderCorner, size: 8:5, resizeable: yes)
+O3*IPositionScreenSquareTopRight8-5Size*ACTION(PoseWindowOn:ScreenRightTopCorner, size: 8:5, resizeable: yes)
+O4*IPositionScreenSquareUnderRight8-5Size*ACTION(PoseWindowOn:ScreenRightUnderCorner, size: 8:5, resizeable: yes)
+O5*IPositionHalfVScreenLeft8:10Size*ACTION(PoseWindowOn:LeftHalfVScreen, size: 8:10, resizeable: yes)
+O6*IPositionHalfVScreenRight8:10Size*ACTION(PoseWindowOn:RightHalfVScreen, size: 8:10, resizeable: yes)
+O7*IPositionHalfHScreenTop16:5Size*ACTION(PoseWindowOn:TopHalfHScreen, size: 16:5, resizeable: yes)
+O8*IPositionHalfHScreenUnder16:5Size*ACTION(PoseWindowOn:UnderHalfHScreen, size: 16:5, resizeable: yes)
+]
+)
+)
+}
+)
+underRightCorner(
+--button{
+_DESIGN(corner-radius: WindowCornerRadius())
+-position(-&3px)
+_ACTION{
+if userAction:HoldButton(
+resizeWindow(allSizes)SaveLastPositionAfterHoldEnds()
+)
+}
+}
+)
+)
+this window(
+_RIGHT-BUTTONS(_STATE:LOCKED*ChangeColor(Black)AllButtons)
+_LEFT-BUTTONS(
+--button{
+_icon("¡*+O")
+_ACTION(
+if userAction:ClickButton(
+return InstallatorWindowInfoMenu
+)
+InstallatorWindowInfoMenu(
+"ℹ️ Installer Window",
+*+*"This is the dreaOS installer Window"
+)
+)
+}
+)
+_KEYCOMMANDS(
+'⌘F'*ACTION(OpenWindow*.CMD)
+'⊞L'*ACTION(OpenWindow*.CMD)
+)
+_HEADER64-MIDC-VIEW(
+_LINES(
+_POSITION(
+0-2StartPositionFinalPostion8-2
+)
+_FIRST_LINE(
+_COLOR(LIGHTGREEN#000010)
+_ANIMATION(import LineUpAnimation FROM *AnimationsRepo^^ -&Use)
+)
+_SECOND_LINE(
+_COLOR(LIGHTBLUE#1000000)
+_ANIMATION(use LineUpAnimation)
+)
+)
+)
+_CIRCLE{
+size: 1:1, EsfereSize
+_DESIGN(import multicolordesignforBall FROM *DesignsRepo^^ -&Use:AlignMedium:Text"Beta 2")
+}
+_TEXT(
+"welcå"
+--typography(import manuscaligraphy FROM *leterfontRepo^^ -&Use)
+--position(UnderCIRCLE4px)
+--design('w'Color:Green:OpacitedRemarkSeaGreen, 'e'Color:DarkBlue:OpacitedRemarkSeaBlue, 'l'Color:Green:OpacitedRemarkSeaGreen,
+'c'Color:Purple:OpacitedRemarkLightPurple, 'å'Color:Cyan:OpacitedRemark:LightCyan)
+)
+_TEXT(
+"⌘ F"
+*+*"⊞ L"
+*+*"Press to open CMD"
+--position(undercorner6px)
+--typography(import manus2caligraphy FROM *leterfontRepo^^ -&Use)
+)
+
+_CURSOR(
+--use */cursor/cursor.cnu
+)
+)
+}
+)
