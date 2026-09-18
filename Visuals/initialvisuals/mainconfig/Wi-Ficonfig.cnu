@@ -1,38 +1,70 @@
-_MAGDX_XUE
-_WI-FI-READ="739_560000130_0500023000141010028";
+_MAGIC3-VISUALINTERFACE(
+--window (import configwindowbuttons, externalconfigdesign FROM ./welcome.cnu)
+  _WI-FI-READ="739_560000130_0500023000141010028";
   _WI-FI-DRIVER="740_570000131_0500023100142010029";
   _WI-FI-CONNECT="741_580000132_0500023200143010030";
-_MAGIC3HEADER-VISUALINTERFACE(
-  _BACKGROUND(GET*./background.cnu, _DIFUMINE::70%);
-_MF_RTOWINDOW{
-  _SIZE(SCREENFULLWINDOW%70SCREEN);
-  _CONTENT(
-_STYLE(:import themes FROM ./styles.cnu -& USEatStyles);
-USE-Wi-FiRead -&DetectWi-FiNetworks-&listList
-_LIST {
- 'Wi-FiName': 'Yes',
- 'Wi-FiIPAddress': 'Yes',
- 'Wi-FiSignalIntensity': 'Yes',
- 'Wi-FiEncryptTipe': 'Yes'
-}
-GET*WiFiPassword(798_115000189_0500028900200010087)
-_CREATE-ENTITIE"passwordGiven"
-if passwordWrited ==¡ match passwordGiven(: ==¡ connectWiFi)
-else getIP(799_115000190_0500029000201010088)-&Comprobe(800_116000191_0500029100202010089)
-if processState-&"Finnished"-connectWi-Fi
-wait connection(WAIT)
-if connectionState-&"Conected"ActivateButton-nextButton
-
-_NEXTBUTTON(
-_DESIGN(usethemes);
-predet-color: gray;
-_CLIKABLE: no;
-_STATE: dissabled;
-change _STATE for Enabled if connectionState-&"Connected"
-if _STATE-&"Enabled"ChangeColor:Blue*_CLIKABLE:yes
-when userInteraction-&"Pulse"
-return redirect300
-redirect*./activationscreen.cnu
-)
-}
-)
+  _WI-FI-GETPASSWORD="798_115000189_0500028900200010087";
+  _WI-FI-GETIP="799_115000190_0500029000201010088";
+  _WI-FI-COMPROBE="800_116000191_0500029100202010089"
+-text (
+"& F"StyleColor:Black
+*+*"• L"StyleColor:Black
+*+*"CMD"StyleColor:Blue
+--position(undercorner6px)
+--typography(import AmericanTypewriter FROM *leterfontRepo^^ -&Use)
+  )
+  -background (RD-FADEINOUT.*colors="sea-blue, grass-green, light-yellow"*intDynamicBackground/day:lightColors/night:darkcolors*)
+  -title(
+  "Fåg êt dågs Wi-Fi"
+  -titleposition(top:px:2)-CenterScreen()
+  -titlecolor(dynamicColor/day:Black/night:White)
+  )
+  -wifindividualview (
+  -interface ({
+  -network-name(
+  -position(topScreen:px:2)
+  -color(dynamicColor/day:Black/night:White)
+  GET *name
+  )
+  -background (RD-FADEINOUT.*colors="sea-blue, grass-green, light-yellow"*intDynamicBackground/day:lightColors/night:darkcolors*)
+ .dif {
+  if user ==¡ connected
+  return connectWi-Fi
+  else return sendPassword
+    if Wi-Fi ==¡ have Password
+    return connect
+    else return password
+  }
+  -interface-noconnected(
+      -network-name(
+  -position(topScreen:px:2)
+  -color(dynamicColor/day:Black/night:White)
+    -typography(use AmericanTypewriter)
+  GET *name
+  )
+  -background (RD-FADEINOUT.*colors="sea-blue, grass-green, light-yellow"*intDynamicBackground/day:lightColors/night:darkcolors*)
+    -textimput("Ingress the password of this Wi-Fi network to connect"*.dif)
+    )
+  -interface-connected(
+         -network-name(
+  -position(topScreen:px:2)
+  -color(dynamicColor/day:Black/night:White)
+    -typography(use AmericanTypewriter)
+  GET *name
+  )
+  -background (RD-FADEINOUT.*colors="sea-blue, grass-green, light-yellow"*intDynamicBackground/day:lightColors/night:darkcolors*)
+    -info(
+    showWi-FiInfo
+    )
+    )
+    
+  -wifilist(
+    GET Wi-FiList
+    .escale {
+    'network1-intensity', 'network1-name', 'network1-typeaccess'
+    repeat after return noDetectedMore
+    }
+    )
+    if Wi-FiTypeaccess == "locked" asignIcon="🔒";
+    else asignIcon="🔓"
+      )
