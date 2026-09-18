@@ -143,6 +143,15 @@ _TEXT(
 --typography(import manus2caligraphy FROM *leterfontRepo^^ -&Use)
 )
 
+_BUTTON {
+-cornerradius: 12px
+_DESIGN(COLOR:LightBlue)
+_text="Wåsdönń"
+-action(
+return redirect300
+redirect ./Wi-Ficonfig.cnu
+} 
+
 _CURSOR(
 --use */cursor/cursor.cnu
 )
