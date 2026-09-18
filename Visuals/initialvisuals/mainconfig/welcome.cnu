@@ -49,7 +49,7 @@ if userAction:ClickButton*IfIsPaused*.ContinueInstallation#continue*
 _HDDR34_WINDOW{
 DEFAULT_window(
 _DEFAULT-Size:AllScreen*size: 16:10*
-_RIGHT(
+_LEFT(
 --BUTTONS{
 buttonClose(
 _icon("X"Color:Red)
