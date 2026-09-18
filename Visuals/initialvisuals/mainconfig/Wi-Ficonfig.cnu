@@ -68,3 +68,21 @@ _MAGIC3-VISUALINTERFACE(
     if Wi-FiTypeaccess == "locked" asignIcon="🔒";
     else asignIcon="🔓"
       )
+_BUTTON {
+-cornerradius: 12px
+_DESIGN(COLOR:LightBlue)
+_STATUS:LOCKED/COLOR:Black/Click:LOCKED
+_text="Wåsdönń"Color:Black:Unlocked/White:Locked
+-action(
+return redirect300
+redirect ./activationpage.cnu
+)
+-position(underWi-FiList)
+-size(3:5)
+if userAction:ConnectToNetwork
+return changey
+ChangeColor:LightBlue
+ChangeSTATUS:Unlocked
+ChangeClick:Activated
+
+} 
