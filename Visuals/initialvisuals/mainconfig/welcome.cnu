@@ -150,6 +150,9 @@ _text="Wåsdönń"
 -action(
 return redirect300
 redirect ./Wi-Ficonfig.cnu
+)
+-position(underTEXT"welcå")
+-size(3:5)
 } 
 
 _CURSOR(
